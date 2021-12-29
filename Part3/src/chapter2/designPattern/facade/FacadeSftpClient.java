@@ -1,0 +1,41 @@
+package chapter2.designPattern.facade;
+
+public class FacadeSftpClient {
+
+    private Ftp ftp;
+    private Reader reader;
+    private Writer writer;
+
+    public FacadeSftpClient(Ftp ftp, Reader reader, Writer writer) {
+        this.ftp = ftp;
+        this.reader = reader;
+        this.writer = writer;
+    }
+
+    public FacadeSftpClient(String host, int port, String path, String fileName) {
+        this.ftp = new Ftp(host, port, path);
+        this.reader = new Reader(fileName);
+        this.writer = new Writer(fileName);
+    }
+
+    public void connect() {
+        ftp.connect();
+        ftp.moveDirectory();
+        writer.fileConnect();
+        reader.fileConnect();
+    }
+
+    public void disConnect(){
+        writer.fileDisconnect();
+        reader.fileDisconnect();
+        ftp.disConnect();
+    }
+
+    public void read() {
+        reader.fileRead();
+    }
+
+    public void write() {
+        writer.fileWrite();
+    }
+}

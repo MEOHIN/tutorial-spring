@@ -1,0 +1,33 @@
+plugins {
+//    스프링프레임워크 부트 플러그인
+    id 'org.springframework.boot' version '2.4.2'
+//    스프링 디펜던시 관련된 플러그인
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    구현할 REST API 구현을 위한 라이브러리
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+//    JPA 기능을 사용하기 위한 라이브러리
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+//    투두 어플리케이션 서버를 구현하기 위해 인메모리 관계형 데이터베이스인 h2데이터베이스를 사용
+    runtimeOnly 'com.h2database:h2'
+
+//    lombok 라이브러리
+    annotationProcessor("org.projectlombok:lombok")
+    compileOnly("org.projectlombok:lombok")
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
