@@ -11,10 +11,10 @@ import org.springframework.util.StopWatch;
 @Component
 public class TimerAop {
 
-    @Pointcut("execution(* aop.controller..*.*(..))")
+    @Pointcut("execution(* springIntro.aop.controller..*.*(..))")
     private void cut(){}
 
-    @Pointcut("@annotation(aop.annotation.Timer)")
+    @Pointcut("@annotation(springIntro.aop.annoation.Timer)")
     private void enableTimer(){}
 
     @Around("cut() && enableTime()")
