@@ -1,6 +1,7 @@
 package springIntro.aop.controller;
 
 import org.springframework.web.bind.annotation.*;
+import springIntro.aop.annotation.Decode;
 import springIntro.aop.annotation.Timer;
 import springIntro.aop.dto.User;
 
@@ -30,5 +31,13 @@ public class RestApiController {
 
 //        db logic
         Thread.sleep(1000 *2);
+    }
+
+    @Decode
+    @PostMapping("/put")
+    public User put(@RequestBody User user){
+        System.out.println("put");
+        System.out.println(user);
+        return user;
     }
 }
