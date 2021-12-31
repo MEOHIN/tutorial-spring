@@ -22,4 +22,8 @@ public class RestApiController {
 
         return user;
     }
+
+    public void delete() throws InterruptedException {
+        Thread.sleep(1000 *2);
+    }
 }
