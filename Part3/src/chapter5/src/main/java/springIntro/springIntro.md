@@ -43,6 +43,14 @@ A사 B사 C사 메소드들을 작성할 때, 공통한 기능이 들어갈 수 
 - 실행시간 Log: 데이터베이스와 통신하는 로이 동일한 경우 실행시간이 얼마나 걸렸는지
 - Parameter Encode: 암호화를 해야하는 경
                              
-
+AOP 는 반복되는 메소드 또는 로직들을 한곳으로 몰아서 코딩할 수 있도록 해준다.
+주요 Annotation
+@Aspect         : AOP 를 정의하는 Class에 할당
+@Pointcut       : AOP 를 적용 시킬 지점을 설정
+@Before         : 메소드 실행하기 이전
+@After          : 메소드 성공적으로 실행 후, 예외가 발생되더라도 실행
+@AfterReturnin  : 메소드 호출 성공 실행시 (Not Throws)
+@AfterThrowing  : 메소드 호출 실패 예회 발생 (Throws)
+@Around         : Before / after 모두 제어
 
 ---
