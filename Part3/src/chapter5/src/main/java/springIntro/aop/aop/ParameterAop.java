@@ -1,7 +1,10 @@
 package springIntro.aop.aop;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +13,7 @@ import java.lang.reflect.Method;
 @Aspect     // aop 로 동작한다.
 @Component  // spring 에서 Component 로 관리한다.
 public class ParameterAop {
+
     @Pointcut("execution(* com.example.aop.controller..*.*(..))")
     private  void cut() {}
 

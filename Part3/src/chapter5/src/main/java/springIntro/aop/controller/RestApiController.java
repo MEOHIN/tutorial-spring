@@ -12,13 +12,14 @@ public class RestApiController {
 //        System.out.println("get method");
 //        System.out.println("get method: " + id);
 //        System.out.println("get method: " + name);
-        return id + " " + name;
 
+        return id + " " + name;
     }
 
     @PostMapping("/post")
     public User post(@RequestBody User user){
 //        System.out.println("post method" + user);
+
         return user;
     }
 }
