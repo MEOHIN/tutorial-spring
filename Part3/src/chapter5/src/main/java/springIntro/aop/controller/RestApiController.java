@@ -1,6 +1,7 @@
 package springIntro.aop.controller;
 
 import org.springframework.web.bind.annotation.*;
+import springIntro.aop.annoation.Timer;
 import springIntro.aop.dto.User;
 
 @RestController
@@ -23,7 +24,11 @@ public class RestApiController {
         return user;
     }
 
+    @Timer
+    @DeleteMapping("/delete")
     public void delete() throws InterruptedException {
+
+//        db logic
         Thread.sleep(1000 *2);
     }
 }
