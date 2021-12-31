@@ -1,7 +1,7 @@
 package springIntro.aop.controller;
 
 import org.springframework.web.bind.annotation.*;
-import springIntro.aop.annoation.Timer;
+import springIntro.aop.annotation.Timer;
 import springIntro.aop.dto.User;
 
 @RestController

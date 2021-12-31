@@ -14,7 +14,7 @@ public class TimerAop {
     @Pointcut("execution(* springIntro.aop.controller..*.*(..))")
     private void cut(){}
 
-    @Pointcut("@annotation(springIntro.aop.annoation.Timer)")
+    @Pointcut("@annotation(springIntro.aop.annotation.Timer)")
     private void enableTimer(){}
 
     @Around("cut() && enableTime()")
