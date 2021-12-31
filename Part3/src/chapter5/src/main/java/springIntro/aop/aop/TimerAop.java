@@ -1,5 +1,7 @@
 package springIntro.aop.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
@@ -14,4 +16,10 @@ public class TimerAop {
     @Pointcut("@annotation(com.example.aop.annotation.Timer")
     private void enableTimer(){}
 
+    @Around("cut() && enableTime()")
+    public void around(ProceedingJoinPoint joinPoint) {
+
+        Object result = joinPoint.proceed();
+
+    }
 }
