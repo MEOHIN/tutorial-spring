@@ -17,7 +17,7 @@ public class TimerAop {
     @Pointcut("@annotation(springIntro.aop.annotation.Timer)")
     private void enableTimer(){}
 
-    @Around("cut() && enableTime()")
+    @Around("cut() && enableTimer()")
     public void around(ProceedingJoinPoint joinPoint) throws Throwable {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
