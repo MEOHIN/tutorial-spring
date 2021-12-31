@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 @Component  // spring 에서 Component 로 관리한다.
 public class ParameterAop {
 
-    @Pointcut("execution(* aop.aop.controller..*.*(..))")
+    @Pointcut("execution(* aop.controller..*.*(..))")
     private  void cut() {}
 
 //    메소드가 실행되기 전에 넘어가는 arg 확인
