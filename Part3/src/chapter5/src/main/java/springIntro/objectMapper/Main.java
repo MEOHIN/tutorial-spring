@@ -1,8 +1,10 @@
 package springIntro.objectMapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import springIntro.objectMapper.dto.Car;
 import springIntro.objectMapper.dto.User;
 
@@ -44,6 +46,10 @@ public class Main {
         System.out.println("name: " + _name);
         System.out.println("age: " + _age);
 
+        JsonNode cars = jsonNode.get("cars");
+        ArrayNode arrayNode = (ArrayNode)cars;
 
+        List<Car> _cars = objectMapper.convertValue(arrayNode, new TypeReference<List<Car>>() {});
+        System.out.println(_cars);
     }
 }
