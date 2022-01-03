@@ -1,5 +1,7 @@
 package validation.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,10 +29,14 @@ public class ApiController {
 
                 System.out.println("field: " + field.getField());
                 System.out.println(message);
+
+                sb.append("field: " + field.getField());
+                sb.append("message: " + message);
             });
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(sb.toString());
         }
 
         System.out.println(user);
         return user;
-    };
+    }
 }
