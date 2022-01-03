@@ -1,9 +1,15 @@
 package springIntro.objectMapper.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Car {
 
     private String name;
+
+    @JsonProperty("car_number")
     private String carNumber;
+
+    @JsonProperty("TYPE")
     private String type;
 
     public String getName() {
