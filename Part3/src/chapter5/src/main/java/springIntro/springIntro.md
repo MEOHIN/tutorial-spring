@@ -45,12 +45,24 @@ A사 B사 C사 메소드들을 작성할 때, 공통한 기능이 들어갈 수 
                              
 AOP 는 반복되는 메소드 또는 로직들을 한곳으로 몰아서 코딩할 수 있도록 해준다.
 주요 Annotation
-@Aspect         : AOP 를 정의하는 Class에 할당
-@Pointcut       : AOP 를 적용 시킬 지점을 설정
-@Before         : 메소드 실행하기 이전
-@After          : 메소드 성공적으로 실행 후, 예외가 발생되더라도 실행
-@AfterReturnin  : 메소드 호출 성공 실행시 (Not Throws)
-@AfterThrowing  : 메소드 호출 실패 예회 발생 (Throws)
-@Around         : Before / after 모두 제어
+- @Aspect         : AOP 를 정의하는 Class에 할당
+- @Pointcut       : AOP 를 적용 시킬 지점을 설정
+- @Before         : 메소드 실행하기 이전
+- @After          : 메소드 성공적으로 실행 후, 예외가 발생되더라도 실행
+- @AfterReturnin  : 메소드 호출 성공 실행시 (Not Throws)
+- @AfterThrowing  : 메소드 호출 실패 예회 발생 (Throws)
+- @Around         : Before / after 모두 제어
 
 ---
+
+#### Object Mapper
+- 특정 객체를가 있으면, JSON 형태로 바꾸거나 TEXT 형태가 있으 객체로 바꾸려는 경우 활용
+- 스프링이 request body 에 들어 있는 json 데이터가 object 로 바뀌고
+내가 생성한 객체 또는 클래스가 어떠한 json 형태로 바뀌는지 확인하기 위해 활용
+- JSON 노드 자체를 컨트롤
+
+**TIP**
+gradle dependency 는 추가하는 방법
+1. maven repository 에서 필요한 것을 검색 및 선택
+2. 타인이 가장 많이 찾는 버전 선택
+3. gradle 선택 후, 복사하고 gradle 파일에 붙여넣기
