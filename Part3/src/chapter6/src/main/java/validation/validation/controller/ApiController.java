@@ -1,4 +1,4 @@
-package validation.controller;
+package validation.validation.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import validation.dto.User;
+import validation.validation.dto.User;
 
 import javax.validation.Valid;
 

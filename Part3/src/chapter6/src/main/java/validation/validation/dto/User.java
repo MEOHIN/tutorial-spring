@@ -1,6 +1,4 @@
-package validation.dto;
-
-import validation.annotation.YearMonth;
+package validation.validation.dto;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;

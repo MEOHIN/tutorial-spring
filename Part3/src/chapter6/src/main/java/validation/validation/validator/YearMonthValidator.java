@@ -1,6 +1,6 @@
-package validation.validator;
+package validation.validation.validator;
 
-import validation.annotation.YearMonth;
+import validation.validation.annotation.YearMonth;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

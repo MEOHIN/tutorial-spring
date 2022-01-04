@@ -1,4 +1,4 @@
-package validation.dto;
+package validation.validation.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
