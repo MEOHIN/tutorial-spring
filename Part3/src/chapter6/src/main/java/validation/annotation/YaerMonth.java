@@ -19,4 +19,6 @@ public @interface YaerMonth {
     Class<?>[] groups() default { };
 
     Class<? extends Payload>[] payload() default { };
+
+    String pattern() default "yyyyMM";
 }
