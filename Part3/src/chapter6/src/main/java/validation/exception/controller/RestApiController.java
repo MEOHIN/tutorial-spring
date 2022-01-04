@@ -6,7 +6,7 @@ import validation.exception.dto.User;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class RestApiController {
 
     @GetMapping("")
