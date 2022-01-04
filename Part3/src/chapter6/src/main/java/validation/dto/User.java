@@ -63,7 +63,9 @@ public class User {
 
 
     @AssertTrue
-    public boolean isReqYearMonthValidation() {
+    public boolean isReqYearMonthValidation(){
+
+        System.out.println("assert true call");
 
         try {
             LocalDate localDate = LocalDate.parse(getReqYearMonth()+"01", DateTimeFormatter.ofPattern("yyyyMMdd"));
