@@ -62,7 +62,7 @@ public class User {
     }
 
 
-    @AssertTrue
+    @AssertTrue(message = "yyyyMM 의 형식에 맞지 않습니다.")
     public boolean isReqYearMonthValidation(){
 
         System.out.println("assert true call");
