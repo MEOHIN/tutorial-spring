@@ -64,20 +64,20 @@ public class User {
     }
 
 
-    @AssertTrue(message = "yyyyMM 의 형식에 맞지 않습니다.")
-    public boolean isReqYearMonthValidation(){
-
-        System.out.println("assert true call");
-
-        try {
-            LocalDate localDate = LocalDate.parse(getReqYearMonth()+"01", DateTimeFormatter.ofPattern("yyyyMMdd"));
-        }
-        catch (Exception e) {
-            return false;
-        }
-
-        return true;
-    }
+//    @AssertTrue(message = "yyyyMM 의 형식에 맞지 않습니다.")
+//    public boolean isReqYearMonthValidation(){
+//
+//        System.out.println("assert true call");
+//
+//        try {
+//            LocalDate localDate = LocalDate.parse(getReqYearMonth()+"01", DateTimeFormatter.ofPattern("yyyyMMdd"));
+//        }
+//        catch (Exception e) {
+//            return false;
+//        }
+//
+//        return true;
+//    }
 
     @Override
     public String toString() {

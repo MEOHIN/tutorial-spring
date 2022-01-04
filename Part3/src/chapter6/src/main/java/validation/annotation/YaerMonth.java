@@ -14,7 +14,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Retention(RUNTIME)
 public @interface YaerMonth {
 
-    String message() default "{javax.validation.constraints.Email.message}";
+    String message() default "yyyyMM 형식에 맞지 않습니다.";
 
     Class<?>[] groups() default { };
 
