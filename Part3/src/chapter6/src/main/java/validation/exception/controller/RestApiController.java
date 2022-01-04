@@ -7,7 +7,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/user")
-public class ApiController {
+public class RestApiController {
 
     @GetMapping("")
     public User get(@RequestParam(required = false) String name, @RequestParam(required = false) Integer age) {
