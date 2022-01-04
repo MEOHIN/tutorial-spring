@@ -1,10 +1,8 @@
 package validation.dto;
 
-import validation.annotation.YaerMonth;
+import validation.annotation.YearMonth;
 
 import javax.validation.constraints.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class User {
 
@@ -20,7 +18,7 @@ public class User {
     @Pattern(regexp = "^\\d{2,3}-\\d{3,4}-\\d{4}$", message = "핸드폰 번호의 양식과 맞지 않습니다. 01x-xxx(x)-xxxx")     // 핸드폰 번호 정규식 "^\\d{2,3}-\\d{3,4}-\\d{4}$"
     private String phoneNumber;
 
-    @YaerMonth
+    @YearMonth
     private String reqYearMonth;        //  yyyyMM  요청하는 시간
 
     public String getName() {
