@@ -65,10 +65,8 @@ public class User {
     @AssertTrue
     public boolean isReqYearMonthValidation() {
 
-        this.reqYearMonth = getReqYearMonth()+"01";
-
         try {
-            LocalDate localDate = LocalDate.parse(this.reqYearMonth, DateTimeFormatter.ofPattern("yyyyMMdd"));
+            LocalDate localDate = LocalDate.parse(getReqYearMonth()+"01", DateTimeFormatter.ofPattern("yyyyMMdd"));
         }
         catch (Exception e) {
             return false;
