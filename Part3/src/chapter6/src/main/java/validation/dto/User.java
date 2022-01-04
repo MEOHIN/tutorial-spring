@@ -3,6 +3,7 @@ package validation.dto;
 import validation.annotation.YearMonth;
 
 import javax.validation.constraints.*;
+import java.util.List;
 
 public class User {
 
@@ -20,6 +21,8 @@ public class User {
 
     @YearMonth
     private String reqYearMonth;        //  yyyyMM  요청하는 시간
+
+    private List<Car> cars;
 
     public String getName() {
         return name;
@@ -61,8 +64,15 @@ public class User {
         this.reqYearMonth = reqYearMonth;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
 
-//    @AssertTrue(message = "yyyyMM 의 형식에 맞지 않습니다.")
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    //    @AssertTrue(message = "yyyyMM 의 형식에 맞지 않습니다.")
 //    public boolean isReqYearMonthValidation(){
 //
 //        System.out.println("assert true call");
@@ -77,6 +87,7 @@ public class User {
 //        return true;
 //    }
 
+
     @Override
     public String toString() {
         return "User{" +
@@ -85,6 +96,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", reqYearMonth='" + reqYearMonth + '\'' +
+                ", cars=" + cars +
                 '}';
     }
 }
