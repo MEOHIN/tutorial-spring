@@ -2,6 +2,7 @@ package validation.dto;
 
 import validation.annotation.YearMonth;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class User {
 //    @YearMonth
 //    private String reqYearMonth;        //  yyyyMM  요청하는 시간
 
+    @Valid
     private List<Car> cars;
 
     public String getName() {
