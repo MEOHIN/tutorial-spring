@@ -1,8 +1,17 @@
 package validation.exception.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class User {
+
+    @NotEmpty
+    @Size(min = 1, max = 10)
     private String name;
-    private int age;
+
+    @Min(1)
+    private Integer age;
 
     public String getName() {
         return name;
