@@ -6,7 +6,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice
+@RestControllerAdvice   // basepakage 를 설정해주면, 해당 패키지 하위에 있는 예외를 다 잡을 수 있다.
 public class GlobalControllerAdvice {
 
     @ExceptionHandler(value = Exception.class)
