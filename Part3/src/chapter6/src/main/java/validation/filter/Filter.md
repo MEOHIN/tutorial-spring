@@ -16,3 +16,10 @@ Request 들어옴 -> Filter -> DispatchServlet -> HandlerInterceptor -> AOP 동�
 
 ## sample code
 - Filter 에서 client 가 보낸 request body 가 어떤 것이 들어있는지 기록
+
+#### Error message 확인
+java.lang.IllegalStateException: getReader() has already been called for this request
+커서 단위로 읽어가기 때문에 한 번만 읽을 수 있다. 하나를 읽을 때마다 커서도 하나씩 뒤로 이동하는데, 커서는 앞으로 가지 못한다.
+만약 용 를 이용해서 한 번이라도 읽었다면 Client 요청에 대한 것을 더 이상 읽을 수 없다.
+해결 방법: ContentCachingRequestWrapper 처럼 여러번 읽을 수게 해주는 클래스를 사용
+ContentCachingRequestWrapper: 몇 번이라도 다시 읽을 수 있게 해줌
