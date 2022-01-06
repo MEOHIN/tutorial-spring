@@ -33,6 +33,7 @@ public class GlobalFilter implements Filter {
 //        후처리
 //        전처리지만, 생성자가 생성했을때는 cachedContent 에는 길이만 지정하고 있고 실제 내용을 담고 있지 않음 -> doFilter 후에 request 에 대한 정보를 찍어야 한다
         String reqContent = new String(httpServletRequest.getContentAsByteArray());
+        log.info("request url: {}, request body: {}", url, reqContent);
 
         String resContent = new String(httpServletResponse.getContentAsByteArray());
         int httpStatus = httpServletResponse.getStatus();
