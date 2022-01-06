@@ -10,7 +10,7 @@ import validation.filter.dto.User;
 @Slf4j      // System Log for Java: system.out 대신 log 를 찍을 수 있음
 @RestController
 @RequestMapping("/api/user3")
-public class ApiController {
+public class ApiController4FilterSampleCode {
 
     @PostMapping("")
     public User user (@RequestBody User user) {
