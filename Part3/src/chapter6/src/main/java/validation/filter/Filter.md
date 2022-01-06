@@ -5,6 +5,12 @@
 - Spring 에 의해서 데이터가 변환되기 전의 순수한 Client 의 요청(request body)/응답(response body) 값을 확인
 
 **유일하게 ServletResponse 의 객체를 변환**할 수 있다.
+#### ServletResponse 란?
+#### 서블릿이란?
+- 클라이언트의 요청을 처리하고, 그 결과를 반환하는 Servlet 클래스의 구현 규칙을 지킨 자바 웹 프로그래밍 기술
+- 자바를 사용해서 웹페이지를 동적으로 생성하는 서버측 프로그램
+- 웹 서버의 성능을 향상하기 위해 사용되는 자바 클래스의 일종
+- 자바 코드 안에 HTML 을 포함하고 있다.
 
 ### Filter 주 활용
 - Spring Framework 에서는 request /response 의 Logic 용도로 활용
