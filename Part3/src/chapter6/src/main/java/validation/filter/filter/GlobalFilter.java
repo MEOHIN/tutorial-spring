@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 @Slf4j
+//@WebFilter(urlPatterns = "/api/user/*")   : 특정 클래스 또는 컨트롤러에만 필터를 적용하고 싶은경우, @WebFilter 의 urlPatterns 설정으로 가능
 @Component      // Spring 이 bean 으로 관리
 public class GlobalFilter implements Filter {
     @Override
