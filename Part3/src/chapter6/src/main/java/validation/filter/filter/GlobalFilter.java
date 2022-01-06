@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 @Slf4j
-@Component      // Spring 이 bean 으로 관
+@Component      // Spring 이 bean 으로 관리
 public class GlobalFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
