@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
+import validation.interceptor.annotation.Auth;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +20,12 @@ public class AuthInterceptor implements HandlerInterceptor {
         String url = request.getRequestURI();
 
         log.info("request url: {}", url);
+//        권한 체크
+        boolean hasAnnotation = checkAnnotation(handler, Auth.class);
+        log.info("has annotation: {}", hasAnnotation);
 
-        return false;
+
+        return true;       // true 일때만 Interceptor 넘어서서 logic 을 타게 된다.
     }
 
 //    annotation 유무 확인
