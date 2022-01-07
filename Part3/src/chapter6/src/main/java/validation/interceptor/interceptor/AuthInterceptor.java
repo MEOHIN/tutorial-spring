@@ -21,7 +21,10 @@ public class AuthInterceptor implements HandlerInterceptor {
 
         String url = request.getRequestURI();
 
-        URI uri = UriComponentsBuilder.fromUriString(request.getRequestURI()).build().toUri();
+        URI uri = UriComponentsBuilder.fromUriString(request.getRequestURI())
+                .query(request.getQueryString())
+                .build()
+                .toUri();
 
         log.info("request url: {}", url);
 //        권한 체크
