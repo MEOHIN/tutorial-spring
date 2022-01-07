@@ -7,6 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 import org.springframework.web.util.UriComponentsBuilder;
 import validation.interceptor.annotation.Auth;
+import validation.interceptor.exception.AuthException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +42,7 @@ public class AuthInterceptor implements HandlerInterceptor {
             if (query.equals("name = steve")) {
                 return true;
             }
-            return false;
+            throw new AuthException();      // exception catch
         }
 
         return true;       // true 일때만 Interceptor 넘어서서 logic 을 타게 된다.
