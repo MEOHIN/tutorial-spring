@@ -8,3 +8,4 @@
 
 ### Sample code
 Interceptor 에서 세션을 검사해서 메소드 또는 컨트롤러에 특정 어노테이션이 붙어있을 때만 통과시키겠다.
+Interceptor 등록
