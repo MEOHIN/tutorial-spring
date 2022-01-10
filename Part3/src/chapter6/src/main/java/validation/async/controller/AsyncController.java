@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import validation.async.service.AsyncService;
 
+import java.util.concurrent.CompletableFuture;
+
 @Slf4j
 @RestController
 @RequestMapping("/api")
@@ -20,11 +22,9 @@ public class AsyncController {
     }
 
     @GetMapping("/hello")
-    private String hello () {
-//        async 어노테이션덕분에 기다리지 않고 바로 "hello" 를 return 한다.
-        asyncService.hello();
-
-        log.info("method end");
-        return "hello";
+//    CompletableFuture : 다른 쓰레드에서 실행시키고 결과를 받음
+    private CompletableFuture hello () {
+        log.info("Completable future init");
+        return asyncService.run();
     }
 }
