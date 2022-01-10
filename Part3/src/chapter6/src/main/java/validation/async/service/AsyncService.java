@@ -5,13 +5,14 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 @Service
 public class AsyncService {
 
-    @Async
+    @Async("async-thread")
     public CompletableFuture run() {
         return new AsyncResult(hello()).completable();
     }
