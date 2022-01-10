@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class AsyncService {
 
-    @Async("async-thread")
+    @Async("async-thread")      // Async 는 AOP 기반이라서 proxy 패턴
     public CompletableFuture run() {
         return new AsyncResult(hello()).completable();
     }
