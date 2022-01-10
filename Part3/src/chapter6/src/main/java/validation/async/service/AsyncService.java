@@ -11,6 +11,7 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class AsyncService {
 
+    @Async
     public CompletableFuture run() {
         return new AsyncResult(hello()).completable();
     }
