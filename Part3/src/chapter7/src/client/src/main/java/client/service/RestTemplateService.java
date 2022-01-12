@@ -2,6 +2,8 @@ package client.service;
 
 import client.dto.UserRequest;
 import client.dto.UserResponse;
+import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -67,6 +69,38 @@ public class RestTemplateService {
         System.out.println(response.getStatusCode());
         System.out.println(response.getHeaders());
         System.out.println(response.getBody());
+
+        return response.getBody();
+    }
+
+    public UserResponse exchange() {
+        //        http://localhost:9090/api/server/user/{userId}/name/{userName}
+
+        URI uri = UriComponentsBuilder
+                .fromUriString("http://localhost:9090")
+                .path("/api/server/user/{userId}/name/{userName}")
+                .encode()
+                .build()
+                .expand("100", "steve")
+                .toUri();
+
+        System.out.println(uri);
+
+//        post 이므로 http body 가 필요 -> 하지만 나는 object 만 보낸다 -> 그러면 object mapper 가 알아서 -> json 으로 바꾸고 -> rest template 에서 -> http body 에 json 으로 넣어줌
+        UserRequest req = new UserRequest();
+        req.setName("steve");
+        req.setAge(10);
+
+
+        RequestEntity<UserRequest> requestEntity = RequestEntity
+                .post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .header("x-authorization", "abcd")
+                .header("custom-header", "ffff")
+                .body(req);
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<UserResponse> response = restTemplate.exchange(requestEntity, UserResponse.class);
 
         return response.getBody();
     }
