@@ -1,5 +1,6 @@
 package client.service;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -18,7 +19,7 @@ public class RestTemplateService {
 //        어떻게 통신하냐?: client 가 되어야 하기 때문에 RestTemplate 사용
 //        URL 만들기
         URI uri = UriComponentsBuilder
-                .fromUriString("http://localhost:8080")
+                .fromUriString("http://localhost:9090")
                 .path("/api/server/hello")
                 .encode()
                 .build()
