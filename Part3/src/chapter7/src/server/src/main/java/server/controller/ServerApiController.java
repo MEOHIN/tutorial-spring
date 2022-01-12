@@ -19,7 +19,7 @@ public class ServerApiController {
         return user;
     }
 
-    @PostMapping("/user/{useId}/name/{userName}")
+    @PostMapping("/user/{userId}/name/{userName}")
     public ServerUser post(@RequestBody ServerUser serverUser, @PathVariable int userId, @PathVariable String userName) {
         log.info("userId: {}, userName: {}", userId, userName);
         log.info("client : {}", serverUser);
