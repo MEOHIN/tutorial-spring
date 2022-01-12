@@ -18,8 +18,8 @@ public class ClientApiController {
         this.restTemplateService = restTemplateService;
     }
 
-    @GetMapping("hello")
-    public ClientUserResponse getHello () {
+    @GetMapping("/hello")
+    public UserResponse getHello () {
         return restTemplateService.hello();
     }
 }
