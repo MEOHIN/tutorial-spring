@@ -1,11 +1,10 @@
 package server.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 import server.dto.ServerUser;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/server")
 public class ServerApiController {
@@ -18,5 +17,13 @@ public class ServerApiController {
         user.setAge(age);
 
         return user;
+    }
+
+    @PostMapping("/user/{useId}/name/{userName}")
+    public ServerUser post(@RequestBody ServerUser serverUser, @PathVariable int userId, @PathVariable String userName) {
+        log.info("userId: {}, userName: {}", userId, userName);
+        log.info("client : {}", serverUser);
+
+        return serverUser;
     }
 }
