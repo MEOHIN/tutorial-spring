@@ -9,6 +9,21 @@ public class Req<T> {
 
     public static class Header {
         private String responseConde;
+
+        public String getResponseConde() {
+            return responseConde;
+        }
+
+        public void setResponseConde(String responseConde) {
+            this.responseConde = responseConde;
+        }
+
+        @Override
+        public String toString() {
+            return "Header{" +
+                    "responseConde='" + responseConde + '\'' +
+                    '}';
+        }
     }
 
     public Header getHeader() {

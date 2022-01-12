@@ -107,7 +107,7 @@ public class RestTemplateService {
         return response.getBody();
     }
 
-    public UserResponse genericExchange(){
+    public Req<UserResponse> genericExchange(){
         //        http://localhost:9090/api/server/user/{userId}/name/{userName}
 
         URI uri = UriComponentsBuilder
@@ -147,6 +147,6 @@ public class RestTemplateService {
         ResponseEntity<Req<UserResponse>> response
                 = restTemplate.exchange(requestEntity, new ParameterizedTypeReference<Req<UserResponse>>(){});
 
-        return response.getBody().getResBody();
+        return response.getBody();
     }
 }

@@ -1,6 +1,7 @@
 package server.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
 import server.dto.Req;
 import server.dto.ServerUser;
@@ -21,7 +22,8 @@ public class ServerApiController {
     }
 
     @PostMapping("/user/{userId}/name/{userName}")
-    public Req<ServerUser> post(@RequestBody Req<ServerUser> serverUser,
+    public Req<ServerUser> post(
+                                @RequestBody Req<ServerUser> serverUser,
                                 @PathVariable int userId,
                                 @PathVariable String userName,
                                 @RequestHeader("x-authorization") String authorization,
@@ -35,7 +37,7 @@ public class ServerApiController {
                 new Req.Header()
         );
 
-        response.setBody(serverUser.getBody());
+        response.setResBody(serverUser.getResBody());
 
         return response;
     }

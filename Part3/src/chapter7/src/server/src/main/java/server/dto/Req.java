@@ -11,7 +11,7 @@ public class Req<T> {
 
     private Header header;
 
-    private T body; // body 는 앞으로 계속해서 변경된다는 전제
+    private T resBody; // body 는 앞으로 계속해서 변경된다는 전제
 
     @Data
     @AllArgsConstructor
