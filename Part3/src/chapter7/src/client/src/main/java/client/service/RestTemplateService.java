@@ -29,6 +29,7 @@ public class RestTemplateService {
 
 //        Rest Template 만들기
         RestTemplate restTemplate = new RestTemplate();
+//        getForObject 의 get 은 가져오겠다는 뜻이 아니라 Http 메소두의 GET
         String result = restTemplate.getForObject(uri, String.class);   // getForObject 가 실행되는 순간 client 에서 http(서버)로 붙는 순간
         return result;
     }
