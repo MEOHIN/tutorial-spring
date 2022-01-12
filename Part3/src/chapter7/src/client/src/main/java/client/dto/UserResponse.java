@@ -1,6 +1,6 @@
 package client.dto;
 
-public class ClientUserResponse {
+public class UserResponse {
     private String name;
     private int age;
 
@@ -22,7 +22,7 @@ public class ClientUserResponse {
 
     @Override
     public String toString() {
-        return "ClientUserResponse{" +
+        return "UserResponse{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';

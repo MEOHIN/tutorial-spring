@@ -1,6 +1,6 @@
 package client.controller;
 
-import client.dto.ClientUserResponse;
+import client.dto.UserResponse;
 import client.service.RestTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
