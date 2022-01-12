@@ -10,12 +10,12 @@ import server.dto.ServerUser;
 public class ServerApiController {
 
     @GetMapping("/hello")
-    public String hello() {
+    public ServerUser hello() {
 
         ServerUser user = new ServerUser();
         user.setName("steve");
         user.setAge(10);
 
-        return "hello server";
+        return user;
     }
 }
