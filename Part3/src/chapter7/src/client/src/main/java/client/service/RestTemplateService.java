@@ -48,10 +48,10 @@ public class RestTemplateService {
 
         URI uri = UriComponentsBuilder
                 .fromUriString("http://localhost:9090")
-                .path("/api/server/user/{userId}/name/{userName")
+                .path("/api/server/user/{userId}/name/{userName}")
                 .encode()
                 .build()
-                .expand(100)
+                .expand("100")
                 .expand("steve")
                 .toUri();
 
