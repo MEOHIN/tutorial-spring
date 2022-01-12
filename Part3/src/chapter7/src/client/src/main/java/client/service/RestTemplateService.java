@@ -51,8 +51,7 @@ public class RestTemplateService {
                 .path("/api/server/user/{userId}/name/{userName}")
                 .encode()
                 .build()
-                .expand("100")
-                .expand("steve")
+                .expand("100", "steve")
                 .toUri();
 
         System.out.println(uri);
