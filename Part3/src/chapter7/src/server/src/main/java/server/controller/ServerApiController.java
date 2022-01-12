@@ -11,6 +11,7 @@ import server.dto.Req;
 import server.dto.ServerUser;
 
 import java.net.URI;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
@@ -37,7 +38,7 @@ public class ServerApiController {
                 .queryParam("display", 10)
                 .queryParam("start", 1)
                 .queryParam("sort", "random")
-                .encode()
+                .encode(Charset.forName("UTF-8"))
                 .build()
                 .toUri();
 
