@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/client")
-public class ClientController {
+public class ClientApiController {
 
     @Autowired
     private RestTemplateService restTemplateService;
 
-    public ClientController(RestTemplateService restTemplateService) {
+    public ClientApiController(RestTemplateService restTemplateService) {
         this.restTemplateService = restTemplateService;
     }
 
