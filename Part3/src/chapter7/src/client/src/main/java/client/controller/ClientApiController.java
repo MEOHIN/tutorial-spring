@@ -20,7 +20,7 @@ public class ClientApiController {
 
     @GetMapping("/hello")
     public UserResponse getHello () {
-        restTemplateService.exchange();
+        restTemplateService.genericExchange();
         return new UserResponse();
     }
 }
