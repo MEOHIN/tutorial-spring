@@ -1,4 +1,4 @@
-package calculator;
+package calculator.component;
 
 public class Calculator {
     private InterfaceCalculator iCalculator;

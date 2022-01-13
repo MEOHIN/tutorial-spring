@@ -1,4 +1,4 @@
-package calculator;
+package calculator.component;
 
 public interface InterfaceCalculator {
 
