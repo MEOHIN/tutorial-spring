@@ -1,17 +1,20 @@
 package calculator.component;
 
-public class Calculator {
-    private InterfaceCalculator iCalculator;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
-    public Calculator(InterfaceCalculator iCalculator) {
-        this.iCalculator = iCalculator;
-    }
+@Component
+@RequiredArgsConstructor
+public class Calculator {
+    private final InterfaceCalculator iCalculator;
 
     public int sum(int x, int y) {
+        this.iCalculator.init();
         return this.iCalculator.sum(x, y);
     }
 
     public int minus(int x, int y) {
+        this.iCalculator.init();
         return this.iCalculator.minus(x, y);
     }
 }

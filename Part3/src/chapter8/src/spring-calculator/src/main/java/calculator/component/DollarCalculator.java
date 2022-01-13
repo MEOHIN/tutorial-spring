@@ -1,15 +1,17 @@
 package calculator.component;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
 public class DollarCalculator implements InterfaceCalculator {
 
     private int price = 1;
-    private MarketAPI marketApi;
+    private final MarketAPI marketApi;
 
-    public DollarCalculator(MarketAPI marketApi) {
-        this.marketApi = marketApi;
-    }
-
-    public void  init() {
+    @Override
+    public void init() {
         this.price = marketApi.connect();
     }
 
