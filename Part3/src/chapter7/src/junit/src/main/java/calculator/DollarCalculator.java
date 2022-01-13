@@ -15,11 +15,15 @@ public class DollarCalculator implements InterfaceCalculator {
 
     @Override
     public int sum(int x, int y) {
-        return 0;
+        x *= price;
+        y *= price;
+        return x + y;
     }
 
     @Override
     public int minus(int x, int y) {
-        return 0;
+        x *= price;
+        y *= price;
+        return x - y;
     }
 }
