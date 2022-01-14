@@ -30,6 +30,7 @@ public class CalculatorApiController {
 
         Res res = new Res();
         res.setResult(result);
+        res.setResponse(new Res.Body());
         return res;
     }
 }

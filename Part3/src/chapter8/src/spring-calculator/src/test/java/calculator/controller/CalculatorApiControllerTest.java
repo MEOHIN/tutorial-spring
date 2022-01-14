@@ -64,6 +64,8 @@ public class CalculatorApiControllerTest {
                 .content(json)
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
+        ).andExpect(MockMvcResultMatchers.jsonPath("$.result").value("0")
+        ).andExpect(MockMvcResultMatchers.jsonPath("$.response.resultCode").value("OK")
         ).andDo(MockMvcResultHandlers.print());
     }
 
