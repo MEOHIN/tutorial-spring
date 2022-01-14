@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class DollarCalculator implements InterfaceCalculator {
 
     private int price = 1;
-    private final MarketAPI marketApi;
+    private final MarketAPI marketApi;  // MarketAPI 주입 받음
 
     @Override
     public void init() {
