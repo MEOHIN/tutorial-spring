@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-@SpringBootTest
+@SpringBootTest     // 통합 테스트
 public class DollarCalculatorTest {
 
     @MockBean   // MarketAPI 를 mocking 처리
