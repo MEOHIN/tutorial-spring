@@ -1,9 +1,6 @@
 package swagger.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
 import swagger.dto.UserReq;
 import swagger.dto.UserRes;
@@ -18,12 +15,19 @@ public class SwaggerApiController {
         return "hello";
     }
 
+    @ApiImplicitParams(
+            {
+                    @ApiImplicitParam(value = "x 값"),
+                    @ApiImplicitParam(value = "y 값")
+            }
+    )
+
     @GetMapping
     public int plus(
-            @ApiParam(value = "x값")
+//            @ApiParam(value = "x값")
             @PathVariable int x,
 
-            @ApiParam(value = "y값")
+//            @ApiParam(value = "y값")
             @RequestParam int y) {
         return x+y;
     }
