@@ -17,8 +17,8 @@ public class SwaggerApiController {
 
     @ApiImplicitParams(
             {
-                    @ApiImplicitParam(value = "x 값"),
-                    @ApiImplicitParam(value = "y 값")
+                    @ApiImplicitParam(value = "x 값", required = true, dataType = "int", paramType = "path"),
+                    @ApiImplicitParam(value = "y 값", required = true, dataType = "int", paramType = "param")
             }
     )
 
