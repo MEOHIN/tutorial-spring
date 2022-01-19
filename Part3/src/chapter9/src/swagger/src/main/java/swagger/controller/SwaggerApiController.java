@@ -34,4 +34,9 @@ public class SwaggerApiController {
     public UserRes user(UserReq userReq) {
         return new UserRes(userReq.getName(), userReq.getAge());
     }
+
+    @PostMapping("/user")
+    public UserRes userPost(@RequestBody UserReq req) {
+        return new UserRes(req.getName(), req.getAge());
+    }
 }
