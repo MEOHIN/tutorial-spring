@@ -22,7 +22,7 @@ public class SwaggerApiController {
             }
     )
 
-    @GetMapping
+    @GetMapping("/plus/{x}")
     public int plus(
 //            @ApiParam(value = "x값")
             @PathVariable int x,
