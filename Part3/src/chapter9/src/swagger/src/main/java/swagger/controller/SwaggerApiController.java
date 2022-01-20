@@ -15,20 +15,13 @@ public class SwaggerApiController {
         return "hello";
     }
 
-    @ApiImplicitParams(
-            {
-                    @ApiImplicitParam(value = "x 값", required = true, dataType = "int", paramType = "path"),
-                    @ApiImplicitParam(value = "y 값", required = true, dataType = "int", paramType = "query")
-            }
-    )
+    @ApiImplicitParams({
+                    @ApiImplicitParam(name = "x 값", value = "x 값", required = true, dataType = "int", paramType = "path"),
+                    @ApiImplicitParam(name = "y 값", value = "y 값", required = true, dataType = "int", paramType = "query")
+    })
 
     @GetMapping("/plus/{x}")
-    public int plus(
-//            @ApiParam(value = "x값")
-            @PathVariable int x,
-
-//            @ApiParam(value = "y값")
-            @RequestParam int y) {
+    public int plus(@PathVariable int x, @RequestParam int y) {
         return x+y;
     }
 
