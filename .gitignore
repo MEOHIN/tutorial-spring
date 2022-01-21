@@ -127,6 +127,7 @@ replay_pid*
 # General
 .DS_Store
 **.DS_Store
+Part3/src/.DS_Store
 .AppleDouble
 .LSOverride
 
