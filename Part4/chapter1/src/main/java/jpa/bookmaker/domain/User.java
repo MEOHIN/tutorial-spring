@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 public class User {
     @NonNull    // 필수값 지정
     private String name;
+
+    @NonNull
     private String email;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
