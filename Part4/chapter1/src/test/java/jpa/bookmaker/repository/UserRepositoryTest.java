@@ -17,6 +17,7 @@ class UserRepositoryTest {
     void crud() {   // create read update delete
         userRepository.save(new User());    // NoArgsConstructor 를 이용해서 생성하고 그것을 table 에 저장
 
-        System.out.println(">>>>" + userRepository.findAll());      // user 테이블에 있는 모든 데이터를 list 형식으로 가져오겠다
+        userRepository.findAll().forEach(System.out::println);
+//        System.out.println(">>>>" + userRepository.findAll());      // user 테이블에 있는 모든 데이터를 list 형식으로 가져오겠다
     }
 }
