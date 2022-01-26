@@ -26,7 +26,16 @@ class UserRepositoryTest {
 
 //        보통 List 타입은 변수명으로 복수형을 사용한다.
 //        List<User> users = userRepository.findAll(Sort.by(Sort.Direction.DESC, "name"));    // 알파벳 역순 출력
-        List<User> users = userRepository.findAllById(Lists.newArrayList(1L, 2L, 5L));    // user 객체 long 타입의 ID 중 해당 ID만 출력
+//        List<User> users = userRepository.findAllById(Lists.newArrayList(1L, 2L, 5L));    // user 객체 long 타입의 ID 중 해당 ID만 출력
+//
+//        users.forEach(System.out::println);
+
+        User user1 = new User("jack", "jack@fastcampus.com");
+        User user2 = new User("steve", "steve@fastcampus.com");
+
+        userRepository.saveAll(Lists.newArrayList(user1, user2));
+
+        List<User> users = userRepository.findAll();
 
         users.forEach(System.out::println);
     }
