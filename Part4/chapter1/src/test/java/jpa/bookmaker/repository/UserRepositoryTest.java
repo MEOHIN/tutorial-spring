@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,6 +19,7 @@ class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Test
+    @Transactional  // Sesstion 유지
     void crud() {   // create read update delete
 //        userRepository.save(new User());    // NoArgsConstructor 를 이용해서 생성하고 그것을 table 에 저장
 //
