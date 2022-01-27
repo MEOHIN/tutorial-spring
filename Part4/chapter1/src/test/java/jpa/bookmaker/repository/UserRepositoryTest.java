@@ -59,5 +59,6 @@ class UserRepositoryTest {
 //        boolean exist = userRepository.existsById(1L);  // 실제로는 count query
 
 //        System.out.println(exist);
+        userRepository.delete(userRepository.findById(1L).orElseThrow(RuntimeException::new));  // 내가 작성한 select query 이외에 또다른 select query 가 생성됨
     }
 }
