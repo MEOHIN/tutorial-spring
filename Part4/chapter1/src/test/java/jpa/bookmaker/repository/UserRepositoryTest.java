@@ -53,8 +53,11 @@ class UserRepositoryTest {
 //        userRepository.saveAndFlush(new User("new martin", "newmartin@fastcampus.com"));
 
 //        userRepository.findAll().forEach(System.out::println);
-        long count = userRepository.count();
+//        long count = userRepository.count();
 
-        System.out.println(count);
+//        System.out.println(count);
+        boolean exist = userRepository.existsById(1L);
+
+        System.out.println(exist);
     }
 }
