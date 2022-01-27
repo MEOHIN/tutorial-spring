@@ -60,7 +60,8 @@ class UserRepositoryTest {
 
 //        System.out.println(exist);
 //        userRepository.delete(userRepository.findById(1L).orElseThrow(RuntimeException::new));  // 내가 작성한 select query 이외에 또다른 select query 가 생성됨
-        userRepository.deleteById(1L);
+//        userRepository.deleteById(1L);
+        userRepository.deleteAll(userRepository.findAllById(Lists.newArrayList(1L, 3L)));   // entity argument를 주어도 각각의 entity가 존재하는지 select 하고 각각 delete query 를 던짐
 
         userRepository.findAll().forEach(System.out::println);
     }
