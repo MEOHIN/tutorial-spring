@@ -49,9 +49,12 @@ class UserRepositoryTest {
 
 //        System.out.println(user);
 
-        /** Flush 는 DB 반영 시점에 영향은 주지만, log 에서는 변화를 찾아볼 수 없다.    */
-        userRepository.saveAndFlush(new User("new martin", "newmartin@fastcampus.com"));
+//        /** Flush 는 DB 반영 시점에 영향은 주지만, log 에서는 변화를 찾아볼 수 없다.    */
+//        userRepository.saveAndFlush(new User("new martin", "newmartin@fastcampus.com"));
 
-        userRepository.findAll().forEach(System.out::println);
+//        userRepository.findAll().forEach(System.out::println);
+        long count = userRepository.count();
+
+        System.out.println(count);
     }
 }
