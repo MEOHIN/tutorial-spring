@@ -19,7 +19,7 @@ class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-    @Transactional  // Sesstion 유지
+    @Transactional  // Session 유지
     void crud() {   // create read update delete
 //        userRepository.save(new User());    // NoArgsConstructor 를 이용해서 생성하고 그것을 table 에 저장
 //
