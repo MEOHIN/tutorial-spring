@@ -56,8 +56,8 @@ class UserRepositoryTest {
 //        long count = userRepository.count();
 
 //        System.out.println(count);
-        boolean exist = userRepository.existsById(1L);
+//        boolean exist = userRepository.existsById(1L);  // 실제로는 count query
 
-        System.out.println(exist);
+//        System.out.println(exist);
     }
 }
