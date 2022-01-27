@@ -30,14 +30,18 @@ class UserRepositoryTest {
 //
 //        users.forEach(System.out::println);
 
-        User user1 = new User("jack", "jack@fastcampus.com");
+//        User user1 = new User("jack", "jack@fastcampus.com");
 //        User user2 = new User("steve", "steve@fastcampus.com");
 
 //        userRepository.saveAll(Lists.newArrayList(user1, user2));
-        userRepository.save(user1);
+//        userRepository.save(user1);
 
-        List<User> users = userRepository.findAll();
+//        List<User> users = userRepository.findAll();
 
-        users.forEach(System.out::println);
+//        users.forEach(System.out::println);
+
+        User user = userRepository.getOne(1L);
+
+        System.out.println(user);
     }
 }
