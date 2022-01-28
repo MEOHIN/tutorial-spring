@@ -9,5 +9,5 @@ import java.util.List;
 // JpaRepository<entity 타입, PK 타입>
 public interface UserRepository extends JpaRepository<User, Long> {
     /** query method    */
-    List<User> findByName(String name);   // 리턴받을 type 은 User 라는 entity 이고 User 단위 객체로 리턴하고, 이름 통해서 user 를 가져오는 method
+    User findByName(String name);   // 리턴받을 type 은 User 라는 entity 이고 User 단위 객체로 리턴하고, 이름 통해서 user 를 가져오는 method
 }

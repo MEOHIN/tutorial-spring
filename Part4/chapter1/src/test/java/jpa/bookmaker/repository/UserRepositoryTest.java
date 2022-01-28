@@ -107,6 +107,6 @@ class UserRepositoryTest {
 
     @Test
     void select() {
-        System.out.println(userRepository.findByName("martin"));
+        System.out.println(userRepository.findByName("denis"));
     }
 }
