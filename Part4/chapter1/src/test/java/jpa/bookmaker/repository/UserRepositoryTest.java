@@ -5,6 +5,8 @@ import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 import javax.transaction.Transactional;
@@ -62,7 +64,19 @@ class UserRepositoryTest {
 //        userRepository.delete(userRepository.findById(1L).orElseThrow(RuntimeException::new));  // 내가 작성한 select query 이외에 또다른 select query 가 생성됨
 //        userRepository.deleteById(1L);
 //        userRepository.deleteAll(userRepository.findAllById(Lists.newArrayList(1L, 3L)));   // entity argument 를 주어도 각각의 entity 가 존재하는지 select 하고 각각 delete query 를 던짐
-        userRepository.deleteAllInBatch(userRepository.findAllById(Lists.newArrayList(1L, 3L)));   // 실제 delete query 를 한 번만 실행하고 select 도 하지 않기때문에 성능 이슈를 해결
-        userRepository.findAll().forEach(System.out::println);
+//        userRepository.deleteAllInBatch(userRepository.findAllById(Lists.newArrayList(1L, 3L)));   // 실제 delete query 를 한 번만 실행하고 select 도 하지 않기때문에 성능 이슈를 해결
+//        userRepository.findAll().forEach(System.out::println);
+
+        /** paging  */
+        Page<User> users = userRepository.findAll(PageRequest.of(1, 2));
+
+        System.out.println("page: " + users);
+        System.out.println("totalElements: " + users.getTotalElements());
+        System.out.println("totalPages: " + users.getTotalPages());
+        System.out.println("numberOfElements: " + users.getNumberOfElements());
+        System.out.println("sort: " + users.getSort());
+        System.out.println("size: " + users.getSize());
+
+        users.getContent().forEach(System.out::println);
     }
 }
