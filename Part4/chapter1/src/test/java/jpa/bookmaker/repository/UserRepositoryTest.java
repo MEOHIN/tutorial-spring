@@ -23,7 +23,7 @@ class UserRepositoryTest {
     @Test
 //    @Transactional  // Session 유지
     void crud() {   // create read update delete
-//        userRepository.save(new User());    // NoArgsConstructor 를 이용해서 생성하고 그것을 table 에 저장
+//        userRepository.save(new User());    // NoArgsConstructor 를 이용해서 생성하고 그것을 table 에 저장 -> insert query 생성
 //
 //        userRepository.findAll().forEach(System.out::println);
 //        System.out.println(">>>>" + userRepository.findAll());      // user 테이블에 있는 모든 데이터를 list 형식으로 가져오겠다
@@ -79,18 +79,26 @@ class UserRepositoryTest {
 //
 //        users.getContent().forEach(System.out::println);
 
-        /** queryByExample 이란? entity 를 example 로 만드로 matcher 를 추가해서 선언해줌으로써 필요한 query 들을 만드는 방법    */
+//        /** queryByExample 이란? entity 를 example 로 만드로 matcher 를 추가해서 선언해줌으로써 필요한 query 들을 만드는 방법    */
 //        ExampleMatcher matcher = ExampleMatcher.matching()
 //                .withIgnorePaths("name")
 //                .withMatcher("email", endsWith());
 //
 //        Example<User> example = Example.of(new User("ma", "fastcampus.com"), matcher);
-        User user = new User();
-        user.setEmail("slow");
+//        User user = new User();
+//        user.setEmail("slow");
+//
+//        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("email", contains());    // 양방향
+//        Example<User> example = Example.of(user, matcher);
+//
+//        userRepository.findAll(example).forEach(System.out::println);
+        /** save 메소드가 insert query 생성   */
+        userRepository.save(new User("david", "david@fastcampus.com"));
 
-        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("email", contains());    // 양방향
-        Example<User> example = Example.of(user, matcher);
+        User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        user.setEmail("martin-updated@fastcampus.com");
 
-        userRepository.findAll(example).forEach(System.out::println);
+        /** save 메소드가 insert update query 생성   */
+        userRepository.save(user);
     }
 }
