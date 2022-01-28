@@ -92,13 +92,16 @@ class UserRepositoryTest {
 //        Example<User> example = Example.of(user, matcher);
 //
 //        userRepository.findAll(example).forEach(System.out::println);
+
+        /** SimpleJpaRepository */
         /** save 메소드가 insert query 생성   */
         userRepository.save(new User("david", "david@fastcampus.com"));
 
         User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
         user.setEmail("martin-updated@fastcampus.com");
 
-        /** save 메소드가 insert update query 생성   */
+        /** save 메소드가 insert update query 생성
+         *  @Id 어노테이션에 할당된 값이 null 이면 insert, null 아니라면 update query 를 만들어서 처리 */
         userRepository.save(user);
     }
 }
