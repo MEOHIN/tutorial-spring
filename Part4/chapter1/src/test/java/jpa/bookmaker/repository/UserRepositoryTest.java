@@ -5,14 +5,13 @@ import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 @SpringBootTest     // Spring Context 를 로딩해서 테스트에 활용하겠다
 class UserRepositoryTest {
@@ -67,16 +66,25 @@ class UserRepositoryTest {
 //        userRepository.deleteAllInBatch(userRepository.findAllById(Lists.newArrayList(1L, 3L)));   // 실제 delete query 를 한 번만 실행하고 select 도 하지 않기때문에 성능 이슈를 해결
 //        userRepository.findAll().forEach(System.out::println);
 
-        /** paging  */
-        Page<User> users = userRepository.findAll(PageRequest.of(1, 2));
+//        /** paging  */
+//        Page<User> users = userRepository.findAll(PageRequest.of(1, 2));
+//
+//        System.out.println("page: " + users);
+//        System.out.println("totalElements: " + users.getTotalElements());
+//        System.out.println("totalPages: " + users.getTotalPages());
+//        System.out.println("numberOfElements: " + users.getNumberOfElements());
+//        System.out.println("sort: " + users.getSort());
+//        System.out.println("size: " + users.getSize());
+//
+//        users.getContent().forEach(System.out::println);
 
-        System.out.println("page: " + users);
-        System.out.println("totalElements: " + users.getTotalElements());
-        System.out.println("totalPages: " + users.getTotalPages());
-        System.out.println("numberOfElements: " + users.getNumberOfElements());
-        System.out.println("sort: " + users.getSort());
-        System.out.println("size: " + users.getSize());
+        /** queryByExample 이란? entity 를 example 로 만드로 matcher 를 추가해서 선언해줌으로써 필요한 query 들을 만드는 방법    */
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withIgnorePaths("name")
+                .withMatcher("email", endsWith());
 
-        users.getContent().forEach(System.out::println);
+        Example<User> example = Example.of(new User("ma", "fastcampus.com"), matcher);
+
+        userRepository.findAll(example).forEach(System.out::println);
     }
 }
