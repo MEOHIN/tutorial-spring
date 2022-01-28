@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.contains;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 @SpringBootTest     // Spring Context 를 로딩해서 테스트에 활용하겠다
@@ -79,11 +80,16 @@ class UserRepositoryTest {
 //        users.getContent().forEach(System.out::println);
 
         /** queryByExample 이란? entity 를 example 로 만드로 matcher 를 추가해서 선언해줌으로써 필요한 query 들을 만드는 방법    */
-        ExampleMatcher matcher = ExampleMatcher.matching()
-                .withIgnorePaths("name")
-                .withMatcher("email", endsWith());
+//        ExampleMatcher matcher = ExampleMatcher.matching()
+//                .withIgnorePaths("name")
+//                .withMatcher("email", endsWith());
+//
+//        Example<User> example = Example.of(new User("ma", "fastcampus.com"), matcher);
+        User user = new User();
+        user.setEmail("slow");
 
-        Example<User> example = Example.of(new User("ma", "fastcampus.com"), matcher);
+        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("email", contains());    // 양방향
+        Example<User> example = Example.of(user, matcher);
 
         userRepository.findAll(example).forEach(System.out::println);
     }
