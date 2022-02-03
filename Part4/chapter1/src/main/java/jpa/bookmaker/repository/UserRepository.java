@@ -58,6 +58,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findByIdIsNotNull();
 
-    List<User> findByAddressIsNotEmpty();   // name is not null and name != '' ?? 과는 다른 것임을 명심
+//    List<User> findByAddressIsNotEmpty();   // name is not null and name != '' ?? 과는 다른 것임을 명심
 
+    List<User> findByNameIn(List<String> names);
 }

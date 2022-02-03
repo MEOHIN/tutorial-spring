@@ -1,5 +1,6 @@
 package jpa.bookmaker.repository;
 
+import antlr.collections.List;
 import jpa.bookmaker.domain.User;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
@@ -9,7 +10,6 @@ import org.springframework.data.domain.*;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.contains;
@@ -145,7 +145,8 @@ class UserRepositoryTest {
         /*
         notEmpty 는 문자열이 아닌, 컬렉션 상의 notEmpty 의미
          */
-        System.out.println("findByAddressIsNotEmpty: " +userRepository.findByAddressIsNotEmpty());
+//        System.out.println("findByAddressIsNotEmpty: " +userRepository.findByAddressIsNotEmpty());
 
+        System.out.println("findByNameIn: " + userRepository.findByNameIn(Lists.newArrayList("martin", "dennis")));
     }
 }
