@@ -61,4 +61,16 @@ public interface UserRepository extends JpaRepository<User, Long> {
 //    List<User> findByAddressIsNotEmpty();   // name is not null and name != '' ?? 과는 다른 것임을 명심
 
     List<User> findByNameIn(List<String> names);
+
+    /*
+    startWith, endWith, contains 는 문자열에 관한 쿼리로 동작하고 like 검색을 제공: startWith, endWith, contains 는 findByNameLik 로 매핑한 것과 동일
+     */
+
+    List<User> findByNameStartingWith(String names);
+
+    List<User> findByNameEndingWith(String names);
+
+    List<User> findByNameContains(String names);
+
+    List<User> findByNameLike(String names);
 }
