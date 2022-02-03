@@ -116,5 +116,12 @@ class UserRepositoryTest {
         System.out.println("searchByEmail: " + userRepository.searchByEmail("martin@fastcampus.com"));
         System.out.println("streamByEmail: " + userRepository.streamByEmail("martin@fastcampus.com"));
         System.out.println("findUserByEmail: " + userRepository.findUserByEmail("martin@fastcampus.com"));
+
+        System.out.println("findSomethingByEmail: " + userRepository.findSomethingByEmail("martin@fastcampus.com"));
+
+        System.out.println("findTop2ByEmail: " + userRepository.findTop2ByEmail("martin@fastcampus.com"));
+        System.out.println("findFirst2ByEmail: " + userRepository.findFirst2ByEmail("martin@fastcampus.com"));
+        System.out.println("findLast1ByEmail: " + userRepository.findLast1ByEmail("martin@fastcampus.com"));
+
     }
 }

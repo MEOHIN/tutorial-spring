@@ -27,4 +27,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User streamByEmail(String email);
 
     User findUserByEmail(String email);
+
+    User findSomethingByEmail(String email);
+
+    List<User> findTop2ByEmail(String email);
+
+    List<User> findFirst2ByEmail(String email);
+
+    User findLast1ByEmail(String email);
 }
