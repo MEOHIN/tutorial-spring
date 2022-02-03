@@ -56,4 +56,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findByIdGreaterThanEqualAndIdLessThanEqual(Long id1, Long id2);
 
+    List<User> findByIdIsNotNull();
+
+    List<User> findByAddressIsNotEmpty();   // name is not null and name != '' ?? 과는 다른 것임을 명심
+
 }

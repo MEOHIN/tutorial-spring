@@ -140,5 +140,12 @@ class UserRepositoryTest {
             Between 에는 equal 이 포함되는 것을 명심
  */
         System.out.println("findByIdGreaterThanEqualAndIdLessThanEqual: " + userRepository.findByIdGreaterThanEqualAndIdLessThanEqual(1L, 3L));
+
+        System.out.println("findByIdIsNotNull: " +userRepository.findByIdIsNotNull());
+        /*
+        notEmpty 는 문자열이 아닌, 컬렉션 상의 notEmpty 의미
+         */
+        System.out.println("findByAddressIsNotEmpty: " +userRepository.findByAddressIsNotEmpty());
+
     }
 }
