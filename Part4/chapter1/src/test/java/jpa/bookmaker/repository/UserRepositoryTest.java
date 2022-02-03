@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.*;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -125,5 +126,9 @@ class UserRepositoryTest {
 
         System.out.println("findByEmailAndName: " + userRepository.findByEmailAndName("martin@fastcampus.com", "martin"));
         System.out.println("findByEmailORName: " + userRepository.findByEmailOrName("martin@fastcampus.com", "martin"));
+
+        System.out.println("findByCreatedAtAfter: " + userRepository.findByCreatedAtAfter(LocalDateTime.now().minusDays(1L)));
+        System.out.println("findByIdAfter: " + userRepository.findByIdAfter(4L));
+
     }
 }
