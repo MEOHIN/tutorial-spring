@@ -73,4 +73,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByNameContains(String names);
 
     List<User> findByNameLike(String names);
+
+//    is : 코드 가독성을 높이는 용도로 사용
+    Set<User> findUserByNameIs(String names);
+    Set<User> findUserByName(String names);
+    Set<User> findUserByNameEquals(String names);
+
 }
