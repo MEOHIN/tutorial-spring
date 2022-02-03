@@ -132,5 +132,13 @@ class UserRepositoryTest {
 
         System.out.println("findByCreatedAtGreaterThan: " + userRepository.findByCreatedAtGreaterThan(LocalDateTime.now().minusDays(1L)));
         System.out.println("findByCreatedAtGreaterThanEqual: " + userRepository.findByCreatedAtGreaterThanEqual(LocalDateTime.now().minusDays(1L)));
+
+        System.out.println("findByCreatedAtBetween: " + userRepository.findByCreatedAtBetween(LocalDateTime.now().minusDays(1L), LocalDateTime.now().plusDays(1L)));
+        System.out.println("findByIdBetween: " + userRepository.findByIdBetween(1L, 3L));
+/*        findByIdBetween 쿼리와 findByCreatedAtGreaterThanEqualAndIdLessThanEqual 쿼리는 동일한 쿼리 -> 쿼리상의 논리적인 오류가 있다것을 꼭 알고가자
+            equal 유뮤를 꼭 조심하자.
+            Between 에는 equal 이 포함되는 것을 명심
+ */
+        System.out.println("findByIdGreaterThanEqualAndIdLessThanEqual: " + userRepository.findByIdGreaterThanEqualAndIdLessThanEqual(1L, 3L));
     }
 }

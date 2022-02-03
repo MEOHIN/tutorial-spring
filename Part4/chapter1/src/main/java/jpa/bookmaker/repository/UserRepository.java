@@ -1,6 +1,7 @@
 package jpa.bookmaker.repository;
 
 import jpa.bookmaker.domain.User;
+import org.apache.tomcat.jni.Local;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
@@ -48,4 +49,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByCreatedAtGreaterThan(LocalDateTime yesterday);
 
     List<User> findByCreatedAtGreaterThanEqual(LocalDateTime yesterday);
+
+    List<User> findByCreatedAtBetween(LocalDateTime yesterday, LocalDateTime tomorrow);
+
+    List<User> findByIdBetween(Long id1, Long id2);
+
+    List<User> findByIdGreaterThanEqualAndIdLessThanEqual(Long id1, Long id2);
+
 }
