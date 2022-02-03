@@ -107,21 +107,23 @@ class UserRepositoryTest {
 
     @Test
     void select() {
-        System.out.println(userRepository.findByName("denis"));
+//        System.out.println(userRepository.findByName("denis"));
+//
+//        System.out.println("findByEmail: " + userRepository.findByEmail("martin@fastcampus.com"));
+//        System.out.println("getByEmail: " + userRepository.getByEmail("martin@fastcampus.com"));
+//        System.out.println("readByEmail: " + userRepository.readByEmail("martin@fastcampus.com"));
+//        System.out.println("queryByEmail: " + userRepository.queryByEmail("martin@fastcampus.com"));
+//        System.out.println("searchByEmail: " + userRepository.searchByEmail("martin@fastcampus.com"));
+//        System.out.println("streamByEmail: " + userRepository.streamByEmail("martin@fastcampus.com"));
+//        System.out.println("findUserByEmail: " + userRepository.findUserByEmail("martin@fastcampus.com"));
+//
+//        System.out.println("findSomethingByEmail: " + userRepository.findSomethingByEmail("martin@fastcampus.com"));
+//
+//        System.out.println("findTop2ByEmail: " + userRepository.findTop2ByEmail("martin@fastcampus.com"));
+//        System.out.println("findFirst2ByEmail: " + userRepository.findFirst2ByEmail("martin@fastcampus.com"));
+//        System.out.println("findLast1ByEmail: " + userRepository.findLast1ByEmail("martin@fastcampus.com"));
 
-        System.out.println("findByEmail: " + userRepository.findByEmail("martin@fastcampus.com"));
-        System.out.println("getByEmail: " + userRepository.getByEmail("martin@fastcampus.com"));
-        System.out.println("readByEmail: " + userRepository.readByEmail("martin@fastcampus.com"));
-        System.out.println("queryByEmail: " + userRepository.queryByEmail("martin@fastcampus.com"));
-        System.out.println("searchByEmail: " + userRepository.searchByEmail("martin@fastcampus.com"));
-        System.out.println("streamByEmail: " + userRepository.streamByEmail("martin@fastcampus.com"));
-        System.out.println("findUserByEmail: " + userRepository.findUserByEmail("martin@fastcampus.com"));
-
-        System.out.println("findSomethingByEmail: " + userRepository.findSomethingByEmail("martin@fastcampus.com"));
-
-        System.out.println("findTop2ByEmail: " + userRepository.findTop2ByEmail("martin@fastcampus.com"));
-        System.out.println("findFirst2ByEmail: " + userRepository.findFirst2ByEmail("martin@fastcampus.com"));
-        System.out.println("findLast1ByEmail: " + userRepository.findLast1ByEmail("martin@fastcampus.com"));
-
+        System.out.println("findByEmailAndName: " + userRepository.findByEmailAndName("martin@fastcampus.com", "martin"));
+        System.out.println("findByEmailORName: " + userRepository.findByEmailOrName("martin@fastcampus.com", "martin"));
     }
 }
