@@ -2,6 +2,7 @@ package jpa.bookmaker.repository;
 
 import jpa.bookmaker.domain.User;
 import org.apache.tomcat.jni.Local;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
@@ -79,4 +80,13 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Set<User> findUserByName(String names);
     Set<User> findUserByNameEquals(String names);
 
+    List<User> findTop1ByName(String name);
+
+    List<User> findLast1ByName(String name);
+
+    List<User> findTopByNameOrderByIdDesc(String name);
+
+    List<User> findFirstByNameOrderByIdDescEmailAsc(String name);
+
+    List<User> findFirstByName(String name, Sort sort);
 }

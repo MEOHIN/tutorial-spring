@@ -155,4 +155,14 @@ class UserRepositoryTest {
 
         System.out.println("findByNameLike: " + userRepository.findByNameLike("%art%"));
     }
+
+    @Test
+    void pagingAndSortingTest() {
+        System.out.println("findTop1ByName: " + userRepository.findTop1ByName("martin"));
+        System.out.println("findLast1ByName: " + userRepository.findLast1ByName("martin")); // Last 가 무시되고 findByName 과 동일하게 동작
+//        findLast1ByName 이 동작하라게 하려면 findTop1ByNameOrderByIdDesc 을 이용해 역순으로 가져올 있음
+        System.out.println("findTopByNameOrderByIdDesc: " + userRepository.findTopByNameOrderByIdDesc("martin"));
+        System.out.println("findFirstByNameOrderByIdDescEmailAsc: " + userRepository.findFirstByNameOrderByIdDescEmailAsc("martin"));
+        System.out.println("findFirstByNameWithSortPrams: " + userRepository.findFirstByName("martin", Sort.by(Sort.Order.desc("id"), Sort.Order.asc("email"))));
+    }
 }
