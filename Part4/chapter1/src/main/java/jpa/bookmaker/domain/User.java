@@ -38,8 +38,14 @@ public class User {
 
     @Column(updatable = false)     // User 의 filed(=column) 에 속성을 지정하는 filed scope 의 annotation. 다양산 속성을 사용가능: 예를 들어 DB 의 컬럽과 Object 의 name 을 별도로 매핑할 땐, name 속성을 사용.
     private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+     private LocalDateTime updatedAt;
 
+     /*
+     Entity 는 Data 에 대한 객체이므로 DB 레코드 값을 그대로 반영.
+     @Transient: 만약 객체로서의 역할만 하고 DB 에 반영하지 않고 DB 레코드와는 별개의 데이터를 갖고 싶을때 사용
+      */
+    @Transient
+    private String testData;
 //    @OneToMany(fetch = FetchType.EAGER)
 //    private List<Address> address;
 }
