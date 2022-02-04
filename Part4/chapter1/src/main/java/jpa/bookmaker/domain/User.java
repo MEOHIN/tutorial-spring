@@ -36,9 +36,10 @@ public class User {
     @NonNull
     private String email;
 
+    @Column     // User 의 filed(=column) 에 속성을 지정하는 filed scope 의 annotation. 다양산 속성을 사용가능: 예를 들어 DB 의 컬럽과 Object 의 name 을 별도로 매핑할 땐, name 속성을 사용.
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Address> address;
+//    @OneToMany(fetch = FetchType.EAGER)
+//    private List<Address> address;
 }
