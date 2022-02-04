@@ -1,6 +1,7 @@
 package jpa.bookmaker.repository;
 
 import antlr.collections.List;
+import jpa.bookmaker.domain.Gender;
 import jpa.bookmaker.domain.User;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
@@ -179,5 +180,17 @@ class UserRepositoryTest {
         user1.setName("marrrrrtin");
 
         userRepository.save(user1);
+    }
+
+    @Test
+    void enumTest() {
+        User user = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        user.setGender(Gender.MALE);
+
+        userRepository.save(user);
+
+        userRepository.findAll().forEach(System.out::println);
+
+        System.out.println(userRepository.findRawRecord().get("gender"));
     }
 }
