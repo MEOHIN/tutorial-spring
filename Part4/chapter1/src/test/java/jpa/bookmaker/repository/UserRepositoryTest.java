@@ -25,6 +25,7 @@ class UserRepositoryTest {
     @Test
 //    @Transactional  // Session 유지
     void crud() {   // create read update delete
+
 //        userRepository.save(new User());    // NoArgsConstructor 를 이용해서 생성하고 그것을 table 에 저장 -> insert query 생성
 //
 //        userRepository.findAll().forEach(System.out::println);
@@ -109,6 +110,7 @@ class UserRepositoryTest {
 
     @Test
     void select() {
+
 //        System.out.println(userRepository.findByName("denis"));
 //
 //        System.out.println("findByEmail: " + userRepository.findByEmail("martin@fastcampus.com"));
