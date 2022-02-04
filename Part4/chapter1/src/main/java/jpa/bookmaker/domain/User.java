@@ -60,23 +60,24 @@ public class User {
         System.out.println(">>>> prePersist");
     }
 
+    @PostPersist    // insert 메소드가 호출된 후의 실행하는 메소드
+    public void postPersist() {
+        System.out.println(">>>> postPersist");
+    }
+
     @PreUpdate      // merge 메소드가 호출되기전 실행하는 메소드
     public void preUpdate() {
         System.out.println(">>>> preUpdate");
     }
 
-    @PreRemove      // delete 메소드가 호출되기전 실행하는 메소드
-    public void preRemove() {
-        System.out.println(">>>> preRemove");
-    }
-
-    @PostPersist    // insert 메소드가 호출된 후의 실행하는 메소드
-    public void postPersist() {
-        System.out.println(">>>> postPersist");
-    }
     @PostUpdate     // merge 메소드가 호출된 후의 실행하는 메소드
     public void postUpdate() {
         System.out.println(">>>> postUpdate");
+    }
+
+    @PreRemove      // delete 메소드가 호출되기전 실행하는 메소드
+    public void preRemove() {
+        System.out.println(">>>> preRemove");
     }
 
     @PostRemove     // delete 메소드가 호출된 후의 실행하는 메소드
