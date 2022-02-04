@@ -47,8 +47,46 @@ public class User {
      Entity 는 Data 에 대한 객체이므로 DB 레코드 값을 그대로 반영.
      @Transient: 만약 객체로서의 역할만 하고 DB 에 반영하지 않고 DB 레코드와는 별개의 데이터를 갖고 싶을때 사용
       */
-    @Transient
-    private String testData;
+//    @Transient
+//    private String testData;
+
 //    @OneToMany(fetch = FetchType.EAGER)
 //    private List<Address> address;
+
+    /*
+    JPA 에서 제공하는 이벤트 7가지
+     */
+    @PrePersist     // insert 메소드가 호출되기전 실행하는 메소드
+    public void prePersist() {
+        System.out.println(">>>> prePersist");
+    }
+
+    @PreUpdate      // merge 메소드가 호출되기전 실행하는 메소드
+    public void preUpdate() {
+        System.out.println(">>>> preUpdate");
+    }
+
+    @PreRemove      // delete 메소드가 호출되기전 실행하는 메소드
+    public void preRemove() {
+        System.out.println(">>>> preRemove");
+    }
+
+    @PostPersist    // insert 메소드가 호출된 후의 실행하는 메소드
+    public void postPersist() {
+        System.out.println(">>>> postPersist");
+    }
+    @PostUpdate     // merge 메소드가 호출된 후의 실행하는 메소드
+    public void postUpdate() {
+        System.out.println(">>>> postUpdate");
+    }
+
+    @PostRemove     // delete 메소드가 호출된 후의 실행하는 메소드
+    public void postRemove() {
+        System.out.println(">>>> postRemove");
+    }
+
+    @PostLoad       // select 조회가 일어난 직후에 실행되는 메소드
+    public void postLoad() {
+        System.out.println(">>>> postLoad");
+    }
 }
