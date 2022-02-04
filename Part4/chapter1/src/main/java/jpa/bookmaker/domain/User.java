@@ -95,4 +95,13 @@ public class User {
 //        System.out.println(">>>> postLoad");
 //    }
 
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+    }
 }
