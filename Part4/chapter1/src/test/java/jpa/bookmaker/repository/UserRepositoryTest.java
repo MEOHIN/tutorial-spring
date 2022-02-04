@@ -1,6 +1,5 @@
 package jpa.bookmaker.repository;
 
-import antlr.collections.List;
 import jpa.bookmaker.domain.Gender;
 import jpa.bookmaker.domain.User;
 import org.assertj.core.util.Lists;
@@ -210,5 +209,18 @@ class UserRepositoryTest {
         userRepository.save(user1);
 
         userRepository.deleteById(4L);
+    }
+
+    @Test
+    void prePersistTest() {
+        User user = new User(); // user 새로 생성
+        user.setEmail("martin2@fastcampus.com");
+        user.setName("martin");
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
+
+        userRepository.save(user);
+
+        System.out.println(userRepository.findByEmail("martin2@fastcampus.com"));
     }
 }
