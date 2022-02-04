@@ -60,38 +60,39 @@ public class User {
     /*
     JPA 에서 제공하는 이벤트 7가지
      */
-    @PrePersist     // insert 메소드가 호출되기전 실행하는 메소드
-    public void prePersist() {
-        System.out.println(">>>> prePersist");
-    }
+//    @PrePersist     // insert 메소드가 호출되기전 실행하는 메소드
+//    public void prePersist() {
+//        System.out.println(">>>> prePersist");
+//    }
+//
+//    @PostPersist    // insert 메소드가 호출된 후의 실행하는 메소드
+//    public void postPersist() {
+//        System.out.println(">>>> postPersist");
+//    }
+//
+//    @PreUpdate      // merge 메소드가 호출되기전 실행하는 메소드
+//    public void preUpdate() {
+//        System.out.println(">>>> preUpdate");
+//    }
+//
+//    @PostUpdate     // merge 메소드가 호출된 후의 실행하는 메소드
+//    public void postUpdate() {
+//        System.out.println(">>>> postUpdate");
+//    }
+//
+//    @PreRemove      // delete 메소드가 호출되기전 실행하는 메소드
+//    public void preRemove() {
+//        System.out.println(">>>> preRemove");
+//    }
+//
+//    @PostRemove     // delete 메소드가 호출된 후의 실행하는 메소드
+//    public void postRemove() {
+//        System.out.println(">>>> postRemove");
+//    }
+//
+//    @PostLoad       // select 조회가 일어난 직후에 실행되는 메소드
+//    public void postLoad() {
+//        System.out.println(">>>> postLoad");
+//    }
 
-    @PostPersist    // insert 메소드가 호출된 후의 실행하는 메소드
-    public void postPersist() {
-        System.out.println(">>>> postPersist");
-    }
-
-    @PreUpdate      // merge 메소드가 호출되기전 실행하는 메소드
-    public void preUpdate() {
-        System.out.println(">>>> preUpdate");
-    }
-
-    @PostUpdate     // merge 메소드가 호출된 후의 실행하는 메소드
-    public void postUpdate() {
-        System.out.println(">>>> postUpdate");
-    }
-
-    @PreRemove      // delete 메소드가 호출되기전 실행하는 메소드
-    public void preRemove() {
-        System.out.println(">>>> preRemove");
-    }
-
-    @PostRemove     // delete 메소드가 호출된 후의 실행하는 메소드
-    public void postRemove() {
-        System.out.println(">>>> postRemove");
-    }
-
-    @PostLoad       // select 조회가 일어난 직후에 실행되는 메소드
-    public void postLoad() {
-        System.out.println(">>>> postLoad");
-    }
 }
