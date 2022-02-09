@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data   // getter setter 생성
 @EntityListeners(value = MyEntityListener.class)
-public class Book {
+public class Book implements Auditable{
     @Id
     @GeneratedValue
     private Long id;

@@ -23,7 +23,7 @@ import java.util.List;
 //        indexes = {@Index(columnList = "name")},
 //        uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})}
 //)
-public class User {
+public class User implements Auditable{
     /*  @GeneratedValue
     Long 타입의 값은 개발자가 직접 생성하는 것이 아닌 생성된 값(: table, sequence, identity, auto)을 쓰겠다는 의미
     IDENTITY: mysql DB 에서 많이 사용하는 전략: auto increment 값을 활용해서 이 generation 타입 제공. 트랜젝션이 종료되기전에 insert 문이 동작해서 id 값을 사전에 받아옴. 실제로 커밋되지 않고 로직이 종료된다 하더라도 DB 에서 가지고 있는 id 값을 증가시켜서 특정 id 값이 비는 현상이 발생하기도 함.
