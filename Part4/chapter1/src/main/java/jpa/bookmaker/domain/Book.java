@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Entity // entity 는 기본 생성자가 필요, pk 필요
 @NoArgsConstructor
 @Data   // getter setter 생성
+@EntityListeners(value = MyEntityListener.class)
 public class Book {
     @Id
     @GeneratedValue
@@ -22,14 +23,14 @@ public class Book {
 
     private LocalDateTime updatedAt;
 
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        this.updatedAt = LocalDateTime.now();
-    }
+//    @PrePersist
+//    public void prePersist() {
+//        this.createdAt = LocalDateTime.now();
+//        this.updatedAt = LocalDateTime.now();
+//    }
+//
+//    @PreUpdate
+//    public void preUpdate() {
+//        this.updatedAt = LocalDateTime.now();
+//    }
 }
