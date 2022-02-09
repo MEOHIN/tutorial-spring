@@ -103,5 +103,6 @@ public class User {
 
     @PreUpdate
     public void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 }

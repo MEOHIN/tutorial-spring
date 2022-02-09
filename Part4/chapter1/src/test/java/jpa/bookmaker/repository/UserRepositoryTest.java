@@ -223,4 +223,16 @@ class UserRepositoryTest {
 
         System.out.println(userRepository.findByEmail("martin2@fastcampus.com"));
     }
+
+    @Test
+    void preUpdateTest() {
+        User user = userRepository.findByEmail("martin@fastcampus.com");
+
+        System.out.println("as-is: " +user);
+
+        user.setName("martin22");
+        userRepository.save(user);
+
+        System.out.println("to-be: " + userRepository.findAll().get(0));
+    }
 }
