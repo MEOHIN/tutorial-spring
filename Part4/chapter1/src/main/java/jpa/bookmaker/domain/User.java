@@ -1,6 +1,8 @@
 package jpa.bookmaker.domain;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -46,7 +48,10 @@ public class User implements Auditable{
     private Gender gender;
 
     @Column(updatable = false)     // User 의 filed(=column) 에 속성을 지정하는 filed scope 의 annotation. 다양산 속성을 사용가능: 예를 들어 DB 의 컬럽과 Object 의 name 을 별도로 매핑할 땐, name 속성을 사용.
+    @CreatedDate    // auditing 으로 지정해야할 데이터에 @CreatedDate 와 @LastModifiedDate 라는 걸 지정 자동으로 값을 처리한다.
     private LocalDateTime createdAt;
+
+    @LastModifiedDate
     private LocalDateTime updatedAt;
 
      /*
