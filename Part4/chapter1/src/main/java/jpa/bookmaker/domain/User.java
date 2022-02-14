@@ -1,6 +1,7 @@
 package jpa.bookmaker.domain;
 
 import lombok.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -16,7 +17,7 @@ import java.util.List;
 @Data                       // @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode -> entity 객체를 사용하면서 가장많이 사용하는 어노테이션
 @Builder                    // @AllArgsConstructor 처럼 객체를 생성하고 필드값을 주입해주는데, builder 형식
 @Entity                     // 객체를 entity 선언. 결국 entity 는 DB 테이블과 연결되는 JAVA 객체다. entity 는 반드시 Primary key 가 필요.
-@EntityListeners(value = {MyEntityListener.class, UserEntityListener.class})    // createdAt 처럼 반복해서 메소드를 추가해야할때, Listener 를 지정해서 사용한다.
+@EntityListeners(value = {AuditingEntityListener.class, UserEntityListener.class})    // createdAt 처럼 반복해서 메소드를 추가해야할때, Listener 를 지정해서 사용한다.
 // table 에 name, catalog, schema 은 default 로 자동 지정되지만 따로 지정할 수도 있음. index 또는 uniqueConstraints 와 같은 제약사항은 실제 DB 적용 것과 다를 수 있다; 따라서 이런식으로 entity 에 표기하지 않고 DB 에 직접 설정해서 사용하는 편이다.
 //@Table(
 //        name = "user",
