@@ -1,5 +1,6 @@
 package jpa.bookmaker.domain;
 
+import jpa.bookmaker.domain.lietener.Auditable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -18,8 +19,8 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @Data
-@EntityListeners(value = AuditingEntityListener.class)
-public class UserHistory implements Auditable{
+//@EntityListeners(value = AuditingEntityListener.class)
+public class UserHistory extends BaseEntity implements Auditable {
 
     @Id
     @GeneratedValue
@@ -31,9 +32,9 @@ public class UserHistory implements Auditable{
 
     private String email;
 
-    @CreatedDate
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    private LocalDateTime updatedAt;
+//    @CreatedDate
+//    private LocalDateTime createdAt;
+//
+//    @LastModifiedDate
+//    private LocalDateTime updatedAt;
 }

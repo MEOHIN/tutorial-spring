@@ -1,5 +1,7 @@
 package jpa.bookmaker.domain;
 
+import jpa.bookmaker.domain.lietener.Auditable;
+import jpa.bookmaker.domain.lietener.UserEntityListener;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -19,14 +21,14 @@ import java.util.List;
 @Data                       // @Data = @Getter + @Setter + @ToString + @EqualsAndHashCode -> entity 객체를 사용하면서 가장많이 사용하는 어노테이션
 @Builder                    // @AllArgsConstructor 처럼 객체를 생성하고 필드값을 주입해주는데, builder 형식
 @Entity                     // 객체를 entity 선언. 결국 entity 는 DB 테이블과 연결되는 JAVA 객체다. entity 는 반드시 Primary key 가 필요.
-@EntityListeners(value = {AuditingEntityListener.class, UserEntityListener.class})    // createdAt 처럼 반복해서 메소드를 추가해야할때, Listener 를 지정해서 사용한다.
+@EntityListeners(value = {UserEntityListener.class})    // createdAt 처럼 반복해서 메소드를 추가해야할때, Listener 를 지정해서 사용한다.
 // table 에 name, catalog, schema 은 default 로 자동 지정되지만 따로 지정할 수도 있음. index 또는 uniqueConstraints 와 같은 제약사항은 실제 DB 적용 것과 다를 수 있다; 따라서 이런식으로 entity 에 표기하지 않고 DB 에 직접 설정해서 사용하는 편이다.
 //@Table(
 //        name = "user",
 //        indexes = {@Index(columnList = "name")},
 //        uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})}
 //)
-public class User implements Auditable{
+public class User extends BaseEntity implements Auditable {
     /*  @GeneratedValue
     Long 타입의 값은 개발자가 직접 생성하는 것이 아닌 생성된 값(: table, sequence, identity, auto)을 쓰겠다는 의미
     IDENTITY: mysql DB 에서 많이 사용하는 전략: auto increment 값을 활용해서 이 generation 타입 제공. 트랜젝션이 종료되기전에 insert 문이 동작해서 id 값을 사전에 받아옴. 실제로 커밋되지 않고 로직이 종료된다 하더라도 DB 에서 가지고 있는 id 값을 증가시켜서 특정 id 값이 비는 현상이 발생하기도 함.
