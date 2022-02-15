@@ -1,4 +1,4 @@
-package jpa.bookmaker.domain;
+package jpa.bookmaker.domain.lietener;
 
 import java.time.LocalDateTime;
 

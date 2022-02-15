@@ -1,5 +1,7 @@
-package jpa.bookmaker.domain;
+package jpa.bookmaker.domain.lietener;
 
+import jpa.bookmaker.domain.User;
+import jpa.bookmaker.domain.UserHistory;
 import jpa.bookmaker.repository.UserHistoryRepository;
 import jpa.bookmaker.support.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package jpa.bookmaker.domain;
+package jpa.bookmaker.domain.lietener;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
