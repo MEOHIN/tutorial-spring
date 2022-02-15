@@ -2,7 +2,9 @@ package jpa.bookmaker.domain;
 
 import jpa.bookmaker.domain.lietener.Auditable;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -14,6 +16,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data   // getter setter 생성
 //@EntityListeners(value = AuditingEntityListener.class)
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class Book extends BaseEntity implements Auditable {
     @Id
     @GeneratedValue

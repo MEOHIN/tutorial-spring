@@ -28,6 +28,8 @@ import java.util.List;
 //        indexes = {@Index(columnList = "name")},
 //        uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})}
 //)
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity implements Auditable {
     /*  @GeneratedValue
     Long 타입의 값은 개발자가 직접 생성하는 것이 아닌 생성된 값(: table, sequence, identity, auto)을 쓰겠다는 의미
