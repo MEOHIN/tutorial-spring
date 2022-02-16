@@ -29,23 +29,8 @@ class BookReviewInfoRepositoryTest {
 
     @Test
     void crudTest2() {
-        Book book = new Book();
-        book.setName("Jpa 초격차 패키지");
-        book.setAuthorId(1L);
-        book.setPublisherId(1L);
-
-        bookRepository.save(book);
-
-        System.out.println(">>>> " + bookRepository.findAll());
-
-        BookReviewInfo bookReviewInfo = new BookReviewInfo();
-        bookReviewInfo.setBookId(1L);
-        bookReviewInfo.setAverageReviewScore(4.5f);
-        bookReviewInfo.setReviewCount(2);
-
-        bookReviewInfoRepository.save(bookReviewInfo);
-
-        System.out.println(">>>> " + bookReviewInfoRepository.findAll());
+        givenBook();
+        givenBookInfo();
 
         Book result = bookRepository.findById(
                 bookReviewInfoRepository
@@ -56,5 +41,25 @@ class BookReviewInfoRepositoryTest {
 
         System.out.println(">>>> " + result);
     }
+    private void givenBook() {
+        Book book = new Book();
+        book.setName("Jpa 초격차 패키지");
+        book.setAuthorId(1L);
+        book.setPublisherId(1L);
 
+        bookRepository.save(book);
+
+        System.out.println(">>>> " + bookRepository.findAll());
+    }
+
+    private void givenBookInfo() {
+        BookReviewInfo bookReviewInfo = new BookReviewInfo();
+        bookReviewInfo.setBookId(1L);
+        bookReviewInfo.setAverageReviewScore(4.5f);
+        bookReviewInfo.setReviewCount(2);
+
+        bookReviewInfoRepository.save(bookReviewInfo);
+
+        System.out.println(">>>> " + bookReviewInfoRepository.findAll());
+    }
 }
