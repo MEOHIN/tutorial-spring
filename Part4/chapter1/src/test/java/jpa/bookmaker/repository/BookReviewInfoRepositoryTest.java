@@ -18,7 +18,7 @@ class BookReviewInfoRepositoryTest {
     @Test
     void crudTest() {
         BookReviewInfo bookReviewInfo = new BookReviewInfo();
-        bookReviewInfo.setBookId(1L);
+//        bookReviewInfo.setBookId(1L);
         bookReviewInfo.setAverageReviewScore(4.5f);
         bookReviewInfo.setReviewCount(2);
 
@@ -32,29 +32,27 @@ class BookReviewInfoRepositoryTest {
         givenBook();
         givenBookInfo();
 
-        Book result = bookRepository.findById(
-                bookReviewInfoRepository
+        /*    기존에는 bookId 를 가지고 bookRepository 에서 findById 로 데이터를 가져왔지만,
+        이제는 BookReviewInfoRepository 에서 가져온 것에서 바로 getBook 으로 데이터를 직접 참조    */
+        Book result = bookReviewInfoRepository
                         .findById(1L)
                         .orElseThrow(RuntimeException::new)
-                        .getBookId()
-        ).orElseThrow(RuntimeException::new);
+                        .getBook();
 
         System.out.println(">>>> " + result);
     }
-    private void givenBook() {
+    private Book givenBook() {
         Book book = new Book();
         book.setName("Jpa 초격차 패키지");
         book.setAuthorId(1L);
         book.setPublisherId(1L);
 
-        bookRepository.save(book);
-
-        System.out.println(">>>> " + bookRepository.findAll());
+        return bookRepository.save(book);
     }
 
     private void givenBookInfo() {
         BookReviewInfo bookReviewInfo = new BookReviewInfo();
-        bookReviewInfo.setBookId(1L);
+        bookReviewInfo.setBook(givenBook());
         bookReviewInfo.setAverageReviewScore(4.5f);
         bookReviewInfo.setReviewCount(2);
 
