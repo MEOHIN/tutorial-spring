@@ -5,10 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity     // entity 로 지정
 @NoArgsConstructor  // entity 는 파라미터가 없는 생성자가 필요
@@ -22,7 +19,9 @@ public class BookReviewInfo extends BaseEntity {    // extends BaseEntity 를 �
     private Long id;
 
 // Book 과 BookReviewInfo 를 연결용
-    private Long BookId;
+//    private Long BookId;
+    @OneToOne   // 1:1 로 연관관계 매핑 -> table 에는 BookId 라는 값이 Long 타입으로 존재하겠지만, JPA 에서는 entity 로 set get 을 하면 관계를 자동으로 맺을 수 있도록 처리해준다.
+    private Book book;
 
     /*
     float 과 Float, int Integer 의 차이
