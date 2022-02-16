@@ -39,7 +39,7 @@ public class User extends BaseEntity {
     AUTO: 지정하지 않으면 사용되는 default 값. 각 DB 에 맞게 값을 설정함.
      */
     @Id     // primary key
-    @GeneratedValue     // 순차적으로 데이터 증가.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     // 순차적으로 데이터 증가.
     private Long id;
 
     @NonNull    // 필수값 지정

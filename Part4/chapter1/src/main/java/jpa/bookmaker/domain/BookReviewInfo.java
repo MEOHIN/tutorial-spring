@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity     // entity 로 지정
@@ -17,7 +18,7 @@ import javax.persistence.Id;
 @EqualsAndHashCode(callSuper = true)    // EqualsAndHashCode 의 callSuper 가 default 로 false 이기 때문에
 public class BookReviewInfo extends BaseEntity {    // extends BaseEntity 를 통해 기존해 선언한 생성시간과 수정시간을 받아올 수 있음
     @Id // Entity 는 PK 필수
-    @GeneratedValue // 자동 증가
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 증가
     private Long id;
 
 // Book 과 BookReviewInfo 를 연결용
