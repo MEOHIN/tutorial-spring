@@ -1,17 +1,16 @@
 package jpa.bookmaker.repository;
 
-import jpa.bookmaker.domain.Book;
-import jpa.bookmaker.domain.BookReviewInfo;
+import jpa.bookmaker.domain.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class BookReviewInfoRepositoryTest {
     @Autowired  // 주입
     private BookReviewInfoRepository bookReviewInfoRepository;
+
     @Autowired  // 의존성 추가
     private BookRepository bookRepository;
 
