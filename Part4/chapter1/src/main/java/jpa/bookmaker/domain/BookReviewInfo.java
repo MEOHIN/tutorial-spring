@@ -20,7 +20,9 @@ public class BookReviewInfo extends BaseEntity {    // extends BaseEntity 를 �
 
 // Book 과 BookReviewInfo 를 연결용
 //    private Long BookId;
-    @OneToOne   // 1:1 로 연관관계 매핑 -> table 에는 BookId 라는 값이 Long 타입으로 존재하겠지만, JPA 에서는 entity 로 set get 을 하면 관계를 자동으로 맺을 수 있도록 처리해준다.
+/*  1:1 로 연관관계 매핑 -> table 에는 BookId 라는 값이 Long 타입으로 존재하겠지만, JPA 에서는 entity 로 set get 을 하면 관계를 자동으로 맺을 수 있도록 처리해준다.
+    optional 의 default 는 true 이고, false 로 설정하면 null 을 허용하지 않는다는 뜻    */
+    @OneToOne(optional = false)
     private Book book;
 
     /*
