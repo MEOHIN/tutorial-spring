@@ -2,6 +2,7 @@ package jpa.bookmaker.repository;
 
 import jpa.bookmaker.domain.Gender;
 import jpa.bookmaker.domain.User;
+import jpa.bookmaker.domain.UserHistory;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.*;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.contains;
@@ -269,6 +271,11 @@ class UserRepositoryTest {
         user.setEmail("daniel@fastcampus.com");
         userRepository.save(user);
 
-        userHistoryRepository.findAll().forEach(System.out::println );
+        // table relation 으로 데이터를 가져왔다: JPA 에서 제공하는 방식이 아님
+        List<UserHistory> result = userHistoryRepository.findByUserId(
+                userRepository.findByEmail("daniel@fastcampus.com").getId()
+        );
+
+        result.forEach(System.out::println);
     }
 }
