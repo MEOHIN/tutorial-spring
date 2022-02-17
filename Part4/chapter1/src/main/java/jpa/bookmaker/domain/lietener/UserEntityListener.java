@@ -4,17 +4,16 @@ import jpa.bookmaker.domain.User;
 import jpa.bookmaker.domain.UserHistory;
 import jpa.bookmaker.repository.UserHistoryRepository;
 import jpa.bookmaker.support.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.PreUpdate;
+import javax.persistence.PostPersist;
+import javax.persistence.PostUpdate;
 
 @Component
 public class UserEntityListener {
-//    @Autowired
-//    private UserHistoryRepository userHistoryRepository;
 
-    @PreUpdate
+    @PostPersist
+    @PostUpdate
     public void preUpdate(Object o) {
         UserHistoryRepository userHistoryRepository = BeanUtils.getBean(UserHistoryRepository.class);
 
