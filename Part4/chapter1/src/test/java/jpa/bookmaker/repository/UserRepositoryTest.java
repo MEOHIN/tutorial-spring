@@ -272,9 +272,7 @@ class UserRepositoryTest {
         userRepository.save(user);
 
         // table relation 으로 데이터를 가져왔다: JPA 에서 제공하는 방식이 아님
-        List<UserHistory> result = userHistoryRepository.findByUserId(
-                userRepository.findByEmail("daniel@fastcampus.com").getId()
-        );
+        List<UserHistory> result = userRepository.findByEmail("daniel@fastcampus.com").getUserHistories();
 
         result.forEach(System.out::println);
     }
