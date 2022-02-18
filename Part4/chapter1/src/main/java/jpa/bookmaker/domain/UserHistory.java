@@ -27,6 +27,5 @@ public class UserHistory extends BaseEntity {
     private String email;
 
     @ManyToOne
-    @ToString.Exclude   //  순환 참조 방지
     private User user;
 }
