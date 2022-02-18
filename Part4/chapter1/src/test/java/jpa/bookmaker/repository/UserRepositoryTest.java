@@ -277,5 +277,7 @@ class UserRepositoryTest {
         List<UserHistory> result = userRepository.findByEmail("daniel@fastcampus.com").getUserHistories();
 
         result.forEach(System.out::println);
+
+        System.out.println("UserHistory.getUser() : " + userHistoryRepository.findAll().get(0).getUser());  // 양방향 관계가 형성돼서 UserHistory 에서도 getUser 로 값을 가져올 수 있다
     }
 }
