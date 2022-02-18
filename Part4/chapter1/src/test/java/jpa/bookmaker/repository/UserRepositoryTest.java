@@ -271,6 +271,8 @@ class UserRepositoryTest {
         user.setEmail("daniel@fastcampus.com");
         userRepository.save(user);
 
+        userHistoryRepository.findAll().forEach(System.out::println);
+
         // table relation 으로 데이터를 가져왔다: JPA 에서 제공하는 방식이 아님
         List<UserHistory> result = userRepository.findByEmail("daniel@fastcampus.com").getUserHistories();
 
