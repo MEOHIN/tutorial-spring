@@ -22,10 +22,13 @@ public class UserHistory extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id") // 컬럼 이름을 명시적으로 설정
+    @Column(name = "user_id", insertable = false, updatable = false) // 컬럼 이름을 명시적으로 설정
     private Long userId;
 
     private String name;
 
     private String email;
+
+    @ManyToOne
+    private User user;
 }
