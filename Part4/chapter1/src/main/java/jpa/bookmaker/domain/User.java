@@ -65,7 +65,10 @@ public class User extends BaseEntity {
     // entity 가 어떤 컬럼으로 join 할지 지정
     @JoinColumn(name = "user_id", insertable = false, updatable = false)   // history 값은 user entity 에서 수정하거나 추가하면 안된다 = history 값은 read only(조회 전용) 값
     @ToString.Exclude   //  순환 참조 방지
-    private List<UserHistory> userHistories = new ArrayList<>(); // nullPointException 이 발생하지 않도록 기본 list 값을 생성해주는 생성자: JPA 에서는 해당 값이 조회할 때 존재하지 않으면 빈 list 를 자동으로 넣어주므로 일반적으로는 문제가 없지만, JPA 에서 persist 하기전에 해당값이 null 이기 때문에 로직에 따라서는 nullPointException 이 발생한다
+    /*
+    nullPointException 이 발생하지 않도록 기본 list 값을 생성해주는 생성자: JPA 에서는 해당 값이 조회할 때 존재하지 않으면 빈 list 를 자동으로 넣어주므로 일반적으로는 문제가 없지만, JPA 에서 persist 하기전에 해당값이 null 이기 때문에 로직에 따라서는 nullPointException 이 발생한다
+     */
+    private List<UserHistory> userHistories = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(name = "user_id")
