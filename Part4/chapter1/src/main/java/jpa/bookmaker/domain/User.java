@@ -52,12 +52,12 @@ public class User extends BaseEntity {
     @Enumerated(value = EnumType.STRING) // 적힌 순서로 자동 index 값이 매핑돼서 저장되는 것을 방지하기 위해 반드시 EnumType 을 string 으로 저장해야한다.
     private Gender gender;
 
-    @Column(updatable = false)     // User 의 filed(=column) 에 속성을 지정하는 filed scope 의 annotation. 다양산 속성을 사용가능: 예를 들어 DB 의 컬럽과 Object 의 name 을 별도로 매핑할 땐, name 속성을 사용.
-    @CreatedDate    // auditing 으로 지정해야할 데이터에 @CreatedDate 와 @LastModifiedDate 라는 걸 지정 자동으로 값을 처리한다.
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    private LocalDateTime updatedAt;
+//    @Column(updatable = false)     // User 의 filed(=column) 에 속성을 지정하는 filed scope 의 annotation. 다양산 속성을 사용가능: 예를 들어 DB 의 컬럽과 Object 의 name 을 별도로 매핑할 땐, name 속성을 사용.
+//    @CreatedDate    // auditing 으로 지정해야할 데이터에 @CreatedDate 와 @LastModifiedDate 라는 걸 지정 자동으로 값을 처리한다.
+//    private LocalDateTime createdAt;
+//
+//    @LastModifiedDate
+//    private LocalDateTime updatedAt;
 
     // 어노테이션을 활용해서 entity 내 field 를 선언하는 것으로 해당 쿼리를 대신
     // User Id 값을 가져와서 UserHistoryRepository 에 다시 조회하는 부분을 생략할 수 있음
