@@ -25,8 +25,6 @@ public class Book extends BaseEntity {
 
     private Long authorId;
 
-    private Long publisherId;
-
     /*  bookReviewInfo 에서 book 의 데이터를 가져오는 상태에서
     *   book 에서 bookReviewInfo 데이터를 가져오도록 하는 방법 */
     @OneToOne(mappedBy = "book")  // entity relational 을 사용하는 경우 toString 메소드가 순환참조가 걸리게 된다.
