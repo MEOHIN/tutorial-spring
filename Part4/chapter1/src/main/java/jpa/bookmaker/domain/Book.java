@@ -35,6 +35,7 @@ public class Book extends BaseEntity {
 
     @OneToMany
     @JoinColumn(name = "book_id")
+    @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 
     @ManyToOne
