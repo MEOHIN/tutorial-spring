@@ -12,3 +12,5 @@
 ###### 영속성 컨텍스트 설정은 Persistence xml 이라는 File 을 META-INF 라는 디렉토리 하위에 생성해서 사용한다.
 - 이렇게 설정한 것은 실제로 LocalContainerEntityManagerFactoryBean 의 setPersistenceXmlLocation 이라고 지정하도록 돼 있다.
   - Persistence xml 을 로딩해서 Persistence Context 의 설정을 사용한다.
+- 지금까지는 build.gradle 에 'org.springframework.boot:spring-boot-starter-data-jpa' 의존성을 추가했기 때문에 영속성 컨텍스트를 신경쓰지 않고도 JPA 를 활용할 수 있었다.
+- 
