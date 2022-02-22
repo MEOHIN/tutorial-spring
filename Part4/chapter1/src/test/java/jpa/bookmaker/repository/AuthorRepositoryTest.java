@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
+
 @SpringBootTest
 public class AuthorRepositoryTest {
 
@@ -17,6 +19,7 @@ public class AuthorRepositoryTest {
     private BookRepository bookRepository;
 
     @Test
+    @Transactional
     void manyToManyTest() {
         Book book1 = givenBook("책1");
         Book book2 = givenBook("책2");
