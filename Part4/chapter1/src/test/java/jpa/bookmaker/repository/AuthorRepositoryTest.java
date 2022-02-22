@@ -36,6 +36,9 @@ public class AuthorRepositoryTest {
 
         bookRepository.saveAll(Lists.newArrayList(book1, book2, book3, book4));
         authorRepository.saveAll(Lists.newArrayList(author1, author2));
+
+        System.out.println("author through book: " + bookRepository.findAll().get(2).getAuthors());
+        System.out.println("books through author: " + authorRepository.findAll().get(0).getBooks());
     }
 
     private Book givenBook(String name) {
