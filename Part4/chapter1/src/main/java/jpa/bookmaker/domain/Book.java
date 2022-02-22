@@ -39,4 +39,7 @@ public class Book extends BaseEntity {
     @ManyToOne
     @ToString.Exclude
     private Publisher publisher;
+
+    @ManyToMany
+    private List<Author> authors = new ArrayList<>();
 }
