@@ -31,7 +31,9 @@ public class Author extends BaseEntity{
     따라서 one to many 관계에서는 중간 테이블을 제거하고 직접 참조하도록 했었지만, many to many 는 중간테이블 없이 직접참조할 수 없다.
     현업에서는 many-to-many 는 아주 특별한 상황이 아니라면 거의 사용하지 않는다.
      */
-    @ManyToMany
+//    @ManyToMany
+    @OneToMany
+    @JoinColumn(name = "author_id")
     @ToString.Exclude
     private List<Book> books = new ArrayList<>();
 
