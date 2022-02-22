@@ -10,3 +10,5 @@
 - 실제 영속성 컨텍스트에 가장 주체적인 역할을 하는 클래스는 Entity manager 라는 Bean
 
 ###### 영속성 컨텍스트 설정은 Persistence xml 이라는 File 을 META-INF 라는 디렉토리 하위에 생성해서 사용한다.
+- 이렇게 설정한 것은 실제로 LocalContainerEntityManagerFactoryBean 의 setPersistenceXmlLocation 이라고 지정하도록 돼 있다.
+  - Persistence xml 을 로딩해서 Persistence Context 의 설정을 사용한다.
