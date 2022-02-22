@@ -26,13 +26,13 @@ public class AuthorRepositoryTest {
         Author author1 = givenAuthor("martin");
         Author author2 = givenAuthor("steve");
 
-        book1.setAuthors(Lists.newArrayList(author1));
-        book2.setAuthors(Lists.newArrayList(author2));
-        book3.setAuthors(Lists.newArrayList(author1, author2));
-        book4.setAuthors(Lists.newArrayList(author1, author2));
+        book1.addAuthor(author1);
+        book2.addAuthor(author2);
+        book3.addAuthor(author1, author2);
+        book4.addAuthor(author1, author2);
 
-        author1.setBooks(Lists.newArrayList(book1, book3, book4));
-        author2.setBooks(Lists.newArrayList(book1, book3, book4));
+        author1.addBook(book1, book3, book4);
+        author1.addBook(book2, book3, book4);
 
         bookRepository.saveAll(Lists.newArrayList(book1, book2, book3, book4));
         authorRepository.saveAll(Lists.newArrayList(author1, author2));
