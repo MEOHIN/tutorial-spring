@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity // entity 는 기본 생성자가 필요, pk 필요
@@ -42,4 +43,8 @@ public class Book extends BaseEntity {
 
     @ManyToMany
     private List<Author> authors = new ArrayList<>();
+
+    public void addAuthor(Author... author) {
+        Collections.addAll(this.authors, author);
+    }
 }

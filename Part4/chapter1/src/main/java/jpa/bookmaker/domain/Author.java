@@ -8,6 +8,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -31,4 +32,8 @@ public class Author extends BaseEntity{
      */
     @ManyToMany
     private List<Book> books = new ArrayList<>();
+
+    public void addBook(Book... book) {     // ... 은 배열로 받는 다는 의미
+        Collections.addAll(this.books, book);
+    }
 }
