@@ -32,12 +32,19 @@ public class Author extends BaseEntity{
     현업에서는 many-to-many 는 아주 특별한 상황이 아니라면 거의 사용하지 않는다.
      */
 //    @ManyToMany
+//    @ToString.Exclude
+//    private List<Book> books = new ArrayList<>();
+//
+//    public void addBook(Book... book) {     // ... 은 배열로 받는 다는 의미
+//        Collections.addAll(this.books, book);
+//    }
+
     @OneToMany
     @JoinColumn(name = "author_id")
     @ToString.Exclude
-    private List<Book> books = new ArrayList<>();
+    private List<BookAndAuthor> bookAndAuthors = new ArrayList<>();
 
-    public void addBook(Book... book) {     // ... 은 배열로 받는 다는 의미
-        Collections.addAll(this.books, book);
+    public void addBookAndAuthors(BookAndAuthor... bookAndAuthors) {     // ... 은 배열로 받는 다는 의미
+        Collections.addAll(this.bookAndAuthors, bookAndAuthors);
     }
 }
