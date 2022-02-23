@@ -8,3 +8,7 @@ spring:
     properties:
       hibernate:
         format_sql: true  # query 가 정렬돼서 로그가 찍힘
+  datasource:
+    url: jdbc:mysql://localhost   # jdbc: API 설정, mysql: 클라이언트 드라이버 설정, //localhost: url 주소
+    username: root
+    password:
