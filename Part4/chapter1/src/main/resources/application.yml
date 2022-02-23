@@ -8,6 +8,7 @@ spring:
     properties:
       hibernate:
         format_sql: true  # query 가 정렬돼서 로그가 찍힘
+    generate-ddl: true  # 자동으로 entity 에서 활용하는 테이블들을 생성하는 opt 이다. default 는 false 다.
   datasource:
     url: jdbc:mysql://localhost:3306/book_manager   # jdbc: API 설정, mysql: 클라이언트 드라이버 설정, //localhost: url 주소
     username: root
