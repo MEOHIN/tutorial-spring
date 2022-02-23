@@ -16,3 +16,22 @@
 
 ### dialect 란?
 - entity 나 repository 에서 사용하는 orm 을 실제로는 DB query 로 변환해서 jdbc 를 통해 전달하도록 돼있다. 그 사이에 실제 java 언어에서 사용하는 getter, setter, save 등을 특정한 DB query 로 변환하기 위해서 어떤 query 로 변경할 지 정하는 것이 dialect 다.
+
+### ddl
+```yaml
+generate-ddl: true  # 자동으로 entity 에서 활용하는 테이블들을 생성하는 opt 이다. default 는 false 다.
+hibernate:
+  ddl-auto: create-drop
+```
+
+#### generate-ddl 와 hibernate:ddl-auto 차이
+- test 를 활용하는 h2 DB 의 경우엔, 별다른 설정없이 기본적으로 generate-ddl 을 다 처리해주므로 설정할 필요가 없다. 
+- 운영 DB 의 경우 자동화된 ddl 구문을 사용하는 것은 위험성이 있기때문에 실제로는 false 와 none 의 조합으로 다 막아버린다.
+
+##### generate-ddl
+- yml 계층에서 볼 수 있는 것 처럼, jpa 하위 속성이다.
+- JPA 는 interface 에 대한 정의이고, 실제 구현체는 별도로 존재한다. 즉 generate-ddl 옵션은 구현체와 상관없이 자동화된 ddl 을 사용할 수 있도록 설정하는 값이다. = 범용적인 옵션이다.
+- Spring 공서 문서에 따르면, generate-ddl 보다 hibernate:ddl-auto 옵션이 좀 더 세밀한 옵션이므로 둘의 설정이 어긋날 경우 generate-ddl 옵션을 무시히고 ddl-auto 을 우선적으로 사용한다.
+
+##### hibernate:ddl-auto
+- generate-ddl 에 비해, hibernate 에서 제공하는 좀 더 세밀한 옵션이다.
