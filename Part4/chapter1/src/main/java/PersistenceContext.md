@@ -35,3 +35,6 @@ hibernate:
 
 ##### hibernate:ddl-auto
 - generate-ddl 에 비해, hibernate 에서 제공하는 좀 더 세밀한 옵션이다.
+
+##### Spring 문서에 따르면, embedded DB 를 사용하면 default 로 ddl-auto: create-drop 으로 동작한다.
+- h2 DB 는 embedded DB 의 일종이라서 따로 설정을 하지 않아도 ddl-auto: create-drop 으로 동작한다.
