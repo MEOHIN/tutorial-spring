@@ -38,3 +38,5 @@ hibernate:
 
 ##### Spring 문서에 따르면, embedded DB 를 사용하면 default 로 ddl-auto: create-drop 으로 동작한다.
 - h2 DB 는 embedded DB 의 일종이라서 따로 설정을 하지 않아도 ddl-auto: create-drop 으로 동작한다.
+
+- initialization-mode: always 설정으로 스키마.sql 과 ddl-auto 와 충돌할 시, initialization-mode: always 가 우선시 적용되고 ddl-auto 는 무시된다.
