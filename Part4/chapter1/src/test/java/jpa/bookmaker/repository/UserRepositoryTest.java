@@ -18,6 +18,7 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 @SpringBootTest     // Spring Context 를 로딩해서 테스트에 활용하겠다
+@Transactional      // 각 테스트 메소드가 종료될 때마다 모든 처리했던 데이터들을 롤백
 class UserRepositoryTest {
 
     @Autowired
