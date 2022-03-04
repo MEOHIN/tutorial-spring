@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing  // 기본 listener 를 사용하기위해 auditing 하겠다는 것을 추가
+//@EnableJpaAuditing  // 기본 listener 를 사용하기위해 auditing 하겠다는 것을 추가 -> 별도의 빈에서 로딩
 public class BookmakerApplication {
 
     public static void main(String[] args) {
