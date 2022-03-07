@@ -35,14 +35,14 @@ class BookReviewInfoRepositoryTest {
         /*    기존에는 bookId 를 가지고 bookRepository 에서 findById 로 데이터를 가져왔지만,
         이제는 BookReviewInfoRepository 에서 가져온 것에서 바로 getBook 으로 데이터를 직접 참조    */
         Book result = bookReviewInfoRepository
-                        .findById(7L)
+                        .findById(1L)
                         .orElseThrow(RuntimeException::new)
                         .getBook();
 
         System.out.println(">>>> " + result);
 
         BookReviewInfo result2 = bookRepository
-                .findById(1L)
+                .findById(7L)
                 .orElseThrow(RuntimeException::new)
                 .getBookReviewInfo();
 
