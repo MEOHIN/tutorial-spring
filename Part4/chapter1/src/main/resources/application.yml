@@ -8,7 +8,7 @@ spring:
     properties:
       hibernate:
         format_sql: true  # query 가 정렬돼서 로그가 찍힘
-    generate-ddl: true  # 자동으로 entity 에서 활용하는 테이블들을 생성하는 opt 이다. default 는 false 다.
+    generate-ddl: false  # 자동으로 entity 에서 활용하는 테이블들을 생성하는 opt 이다. default 는 false 다.
     hibernate:
       ddl-auto: create-drop
   datasource:
