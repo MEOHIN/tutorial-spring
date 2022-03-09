@@ -14,6 +14,9 @@ class BookReviewInfoRepositoryTest {
     @Autowired  // 의존성 추가
     private BookRepository bookRepository;
 
+    /**
+     * 북리뷰에 데이터가 정상적으로 추가하는 테스트
+     */
     @Test
     void crudTest() {
         BookReviewInfo bookReviewInfo = new BookReviewInfo();
@@ -29,8 +32,8 @@ class BookReviewInfoRepositoryTest {
 
     @Test
     void crudTest2() {
-        givenBook();
-        givenBookInfo();
+        givenBook();        // 책 생성 (아이디 1)
+        givenBookInfo();    // 책 추가 생성 + 그 책의 리뷰 생성 (아이디 2)
 
         /*    기존에는 bookId 를 가지고 bookRepository 에서 findById 로 데이터를 가져왔지만,
         이제는 BookReviewInfoRepository 에서 가져온 것에서 바로 getBook 으로 데이터를 직접 참조    */
@@ -42,7 +45,7 @@ class BookReviewInfoRepositoryTest {
         System.out.println(">>>> " + result);
 
         BookReviewInfo result2 = bookRepository
-                .findById(7L)
+                .findById(2L)
                 .orElseThrow(RuntimeException::new)
                 .getBookReviewInfo();
 
