@@ -48,3 +48,12 @@ hibernate:
 - entity manager 는 JPA 에서 정의하고 있는 interface 중 하나다: query 할 수 있도록 메소드에 정의가 들어있다.
 - entity manager 의 실제 구현체를 Bean 으로 등록하고 있기 때문에 Autowired 를 이용해 사용할 수 있다.
 - entity manager 는 entity 를 처리하는 과정에서 캐시를 사용한다.
+  - save 메서드를 실행시키는 시점에 DB 에 반영되지 않는다.
+    - 사용하는 영속성 컨텍스트와 실제 DB 사이에 데이터 갭이 발생한다.
+
+- 기존에 사용했던 쿼리 메소드인 Simple JPA Repository 는 직접적으로 entity manager 를 사용하지 않아도 되도록 힌 번 더 래핑해서 쉽게사용할 수 있도록 spring 에서 제공한다.
+  - 실제로는 Simple JPA Repository 와 같은 메소드도 entity manager 를 통해서 실행된다.
+  - 만약 Spring Data JPA 에서 제공하지 않는 기능을 사용하거나, 성능적인 이슈와 같은 특별한 이유로 별도로 커스터마이징이 필요한 경우엔 entity manager 를 직접 받아서 처리하면 된다.
+- entity manager 는 Hibernate 에서 제공하는 SessionImpl 구현체를 사용하는데, 이 SessionImpl 도 entity manager 를 구현하는 방식으로 돼있다.
+  - Hibernate 에서는 entity manager 를 Session 이라고 부른다.
+
