@@ -40,3 +40,11 @@ hibernate:
 - h2 DB 는 embedded DB 의 일종이라서 따로 설정을 하지 않아도 ddl-auto: create-drop 으로 동작한다.
 
 - initialization-mode: always 설정으로 스키마.sql 과 ddl-auto 와 충돌할 시, initialization-mode: always 가 우선시 적용되고 ddl-auto 는 무시된다.
+
+### Entity 캐시
+#### Entity manager
+- 영속성 컨텍스 안에서 entity 는 생성되고 조회되고 지워진다.
+- 영속성 컨텍스 안에서 가장 중요한 역할을 하는 것이 entity manager 라는 객체다.
+- entity manager 는 JPA 에서 정의하고 있는 interface 중 하나다: query 할 수 있도록 메소드에 정의가 들어있다.
+- entity manager 의 실제 구현체를 Bean 으로 등록하고 있기 때문에 Autowired 를 이용해 사용할 수 있다.
+- entity manager 는 entity 를 처리하는 과정에서 캐시를 사용한다.
