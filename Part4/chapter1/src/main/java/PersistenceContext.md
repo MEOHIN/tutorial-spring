@@ -57,3 +57,6 @@ hibernate:
 - entity manager 는 Hibernate 에서 제공하는 SessionImpl 구현체를 사용하는데, 이 SessionImpl 도 entity manager 를 구현하는 방식으로 돼있다.
   - Hibernate 에서는 entity manager 를 Session 이라고 부른다.
 
+#### entity cache
+- 조회시에 진짜 DB 에 쿼리를 조회하지 않고, 영속성 컨텍스트 내에 존재하는 entity cache 에서 직접처리한다.
+  *  따로 cache 설정을 하지 않았지만, 영속성 컨텍스트 내에서 자동으로 entity 에 대해서 cache 처리하는 것을 일반적으로 JPA 의 1차 cache 라고 한다.
