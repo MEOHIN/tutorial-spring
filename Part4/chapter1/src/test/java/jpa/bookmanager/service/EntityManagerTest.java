@@ -34,8 +34,11 @@ public class EntityManagerTest {
      */
     @Test
     void cacheFindTest() {
-        System.out.println(userRepository.findById(1L).get());
-        System.out.println(userRepository.findById(1L).get());
-        System.out.println(userRepository.findById(1L).get());
+        System.out.println(userRepository.findByEmail("martin@fastcampus.com"));
+        System.out.println(userRepository.findByEmail("martin@fastcampus.com"));
+        System.out.println(userRepository.findByEmail("martin@fastcampus.com"));
+        System.out.println(userRepository.findById(2L).get());
+        System.out.println(userRepository.findById(2L).get());
+        System.out.println(userRepository.findById(2L).get());
     }
 }
