@@ -1,5 +1,6 @@
 package jpa.bookmanager.service;
 
+import jpa.bookmanager.domain.User;
 import jpa.bookmanager.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
+/**
+ * 영속성 캐시를 활용해서 id로 조회시에 얻는 이점
+ * 쓰기지연에 따른 데이터 처리
+ */
+
+
 @SpringBootTest
-@Transactional
+// 상위 Transactional 이 존재하면 하위 Transactional 은 무시된다.
+@Transactional  // 쓰기 지연이 발생 -> 트랜젝션 내에서는 DB 에 반영하는 시기를 최대한 늦춤
 public class EntityManagerTest {
 
     @Autowired
@@ -40,5 +48,30 @@ public class EntityManagerTest {
         System.out.println(userRepository.findById(2L).get());
         System.out.println(userRepository.findById(2L).get());
         System.out.println(userRepository.findById(2L).get());
+    }
+
+    /**
+     * 1. cache 와 @Transactional 관계를 확인
+     * 2. flush() 메소드 역할
+     * 3. 영속성 cache 에 있는 query 가 실제 DB 반영되는 시점
+     */
+
+    @Test
+    void cacheFindTest2() {
+        User user = userRepository.findById(1L).get();
+        user.setName("marrrrrrrtin");
+
+        userRepository.save(user);  // save 구현체에 자체적으로 @Transactional 이 있다. -> save 각각이 transaction 이다.
+
+        System.out.println("-------------------------");
+
+        user.setEmail("marrrrrrtin@fastcampus.com");
+        userRepository.save(user);
+
+        System.out.println(">>>>> 1 : " + userRepository.findById(1L).get());  // 실제 DB 반영시기 확인
+
+        userRepository.flush();     // DB 반영: 전체를 Transactional 로 묶을 경우 쿼리가 실행되지 않는 것을 방지하기 위해. flush 는 모여있는 것 비워낸다는 의미
+
+        System.out.println(">>>>> 2 : " + userRepository.findById(1L).get());  // 실제 DB 반영시기 확인
     }
 }
