@@ -41,8 +41,8 @@ hibernate:
 
 - initialization-mode: always 설정으로 스키마.sql 과 ddl-auto 와 충돌할 시, initialization-mode: always 가 우선시 적용되고 ddl-auto 는 무시된다.
 
-### Entity 캐시
-#### Entity manager
+## Entity 캐시
+### Entity manager
 - 영속성 컨텍스 안에서 entity 는 생성되고 조회되고 지워진다.
 - 영속성 컨텍스 안에서 가장 중요한 역할을 하는 것이 entity manager 라는 객체다.
 - entity manager 는 JPA 에서 정의하고 있는 interface 중 하나다: query 할 수 있도록 메소드에 정의가 들어있다.
@@ -57,7 +57,7 @@ hibernate:
 - entity manager 는 Hibernate 에서 제공하는 SessionImpl 구현체를 사용하는데, 이 SessionImpl 도 entity manager 를 구현하는 방식으로 돼있다.
   - Hibernate 에서는 entity manager 를 Session 이라고 부른다.
 
-#### entity cache
+### entity cache
 - 조회시에 진짜 DB 에 쿼리를 조회하지 않고, 영속성 컨텍스트 내에 존재하는 entity cache 에서 직접처리한다.
   - 따로 cache 설정을 하지 않았지만, 영속성 컨텍스트 내에서 자동으로 entity 에 대해서 cache 처리하는 것을 일반적으로 JPA 의 1차 cache 라고 한다.
   - 1차 캐시는 map 의 형태로 만들어 진다. key 는 id 값, value 는 해당 entity 가 들어있다.
