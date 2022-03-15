@@ -90,5 +90,10 @@ hibernate:
      2. entity 상태가 아니라, 단순한 java object 처럼 취급
         1. 영속화 되지 않고 가비지 컬렉터를 통해서 사라지는 데이터가 됨
   2. 영속 상태 = managed
+     1. 영속성 컨텍스트 관리하에 존재하는 상태
+     2. 객체의 변화를 별도로 처리해주지 않더라도 현재 DB의 값과 일일히 비교하여 변경된 내용을 DB 에 반영시켜준다: dirty(변경) check
+        1. Transaction 이 완료된 시점에 별도로 save 메소드를 호출하지 않더라도 DB 데이터와의 정확성을 맞춰준다.
+           1. 로직의 성능저하가 발생할 수도 있음
+        2. save 구현체 안에서는 entity manager 객체를 의미하는 em 이 있기 때문에 내부적으로 entity manager 를 영속화 시킨다.
   3. 준영속 상태 = detached
   4. 삭제 상태 = removed
