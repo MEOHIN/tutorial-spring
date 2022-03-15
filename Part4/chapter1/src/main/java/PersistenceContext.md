@@ -87,6 +87,8 @@ hibernate:
 - 영속성 컨텍스트 내에서 entity manager entity 상태를 어떻게 변화시킬까?
   1. 비영속 상태 = new 또는 transient
      1. 영속성 컨텍스트가 해당 entity 객체를 관리하지 않는 상태
+     2. entity 상태가 아니라, 단순한 java object 처럼 취급
+        1. 영속화 되지 않고 가비지 컬렉터를 통해서 사라지는 데이터가 됨
   2. 영속 상태 = managed
   3. 준영속 상태 = detached
   4. 삭제 상태 = removed
