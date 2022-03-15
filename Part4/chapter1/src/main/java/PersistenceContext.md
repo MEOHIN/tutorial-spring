@@ -96,4 +96,5 @@ hibernate:
            1. 로직의 성능저하가 발생할 수도 있음
         2. save 구현체 안에서는 entity manager 객체를 의미하는 em 이 있기 때문에 내부적으로 entity manager 를 영속화 시킨다.
   3. 준영속 상태 = detached
+     1. 영속화 됐던 객체를 분리해서 영속성 컨텍스트 밖으로 꺼낸다.
   4. 삭제 상태 = removed
