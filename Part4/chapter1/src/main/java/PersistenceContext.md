@@ -75,9 +75,9 @@ hibernate:
   - data history 가 계속 쌓이는 문제 발생
 
 ### 영속성 cache 에 있는 query 가 DB 에 반영되는 시점
-1. Transaction 이 종료되어 해당 쿼리가 커밋되는 시점에 auto flush 가 발생하고 DB 에 데이터가 반영된다.
+1. Transaction 이 종료되어 해당 쿼리가 커밋되는 시점에 auto flush 가 발생하고 DB 에 영속성 컨텍스트가 반영된다.
 2. 개발자가 작성한 flush 메소드가 실행되는 시점에 DB 에 반영
-3. jpql 쿼리가 실행될 때 복잡한 조건의 쿼리가 실행되면 auto flush 가 발생하고 DB 에 데이터가 반영한다.
+3. jpql 쿼리가 실행될 때 복잡한 조건의 쿼리가 실행되면 auto flush 가 발생하고 DB 에 반영한다.
 
 ### entity manager 역할
 - entity 와 DB 레코드 사이에 어떻게 연결하는지
