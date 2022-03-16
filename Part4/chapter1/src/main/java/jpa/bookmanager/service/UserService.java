@@ -31,5 +31,8 @@ public class UserService {
 
         entityManager.flush();      // clear 메소드를 사용하기 전에는 반드시 flush 메소드를 호출해서 변경내용들을 모두 반영하는 것이 좋다.
         entityManager.clear();      // DB 에 반영되지 않은 변경사항들을 모두 지워버린다.
+
+//        remove
+//        entityManager.remove(user);
     }
 }
