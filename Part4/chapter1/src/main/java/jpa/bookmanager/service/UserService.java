@@ -23,9 +23,10 @@ public class UserService {
 //        영속화
         entityManager.persist(user);
 //        detached
-        entityManager.detach(user);
+        entityManager.detach(user);     // detach 대신, clear 또는 close 를 사용해도 비슷하지만, 훨씬 더 파괴적이다.
 
 
         user.setName("newUserAfterPersist");    // managed 의 경우 save 을 실행하지 않더라도 Transaction 이 종료되는 시점에 update 쿼리가 실행되서 데이터가 반영된다.
+        entityManager.merge(user);      // detach 로 더이상 관리되지 않았지만, 데이터가 반영된다.
     }
 }
