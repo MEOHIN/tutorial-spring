@@ -97,5 +97,9 @@ hibernate:
               1. 로직의 성능저하가 발생할 수도 있음
            2. save 구현체 안에서는 entity manager 객체를 의미하는 em 이 있기 때문에 내부적으로 entity manager 를 영속화 시킨다.
   3. 준영속 상태 = detached
-     1. 영속화 됐던 객체를 분리해서 영속성 컨텍스트 밖으로 꺼낸다.
+     1. detach 메소드 사용
+        1. 영속화 됐던 객체를 분리해서 영속성 컨텍스트 밖으로 꺼낸다.
+        2. Spring data JPA 에서 제공하는 UserRepository 를 사용하지 않고 Entity manager 를 직접 활용하는 이유는 다른 상태에 대한 메소드(save, delete, find)는 모두 Spring Data JPA 에서 제공하지만, detach 상태는 따로 메소드로 제공하지 않는다.
+           1. 일반적인 경우 영속성 컨텍스트에서 굳이 detach 할 필요가 없기 때문이다.
+        3. persist 이후에 detach 할 경우, User entity 는 영속성 컨텍스트에서 더이상 관리하지 않게 된다.
   4. 삭제 상태 = removed
