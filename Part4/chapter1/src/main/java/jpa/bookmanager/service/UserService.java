@@ -28,5 +28,8 @@ public class UserService {
 
         user.setName("newUserAfterPersist");    // managed 의 경우 save 을 실행하지 않더라도 Transaction 이 종료되는 시점에 update 쿼리가 실행되서 데이터가 반영된다.
         entityManager.merge(user);      // detach 로 더이상 관리되지 않았지만, 데이터가 반영된다.
+
+        entityManager.flush();      // clear 메소드를 사용하기 전에는 반드시 flush 메소드를 호출해서 변경내용들을 모두 반영하는 것이 좋다.
+        entityManager.clear();      // DB 에 반영되지 않은 변경사항들을 모두 지워버린다.
     }
 }
