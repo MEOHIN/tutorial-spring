@@ -19,3 +19,15 @@ DB 의 명령어들의 논리적인 묶음
 - D : 지속성
     - 데이터는 영구적으로 보관된다.
     - 내가 친구의 통장으로 송금한 내역이 시간이 지나도 남아 있다.
+
+## JPA 에서 Transaction 을 설정하는 방법
+@Transactional 을 사용한다.
+
+### Transaction 의 잘못된 사용
+1. checked exception 사용
+   - checked exception 이란?
+     - RuntimeException 의 상위 exception 이다.
+     - throws Exception 을 사용하여 명시적으로 exception 처리를 해줘야 한다.
+2. private 메소드 또는 Bean 클래 내부로 호출되는 메소드에 @Transactional 사용
+    - spring container 는 bean 으로 진입할 때 Annotation 을 처리하도록 돼있다.
+   - bean 내부에서 메소드가 호출될 경우 @Transactional 이 있다하더라도 무시된다.
