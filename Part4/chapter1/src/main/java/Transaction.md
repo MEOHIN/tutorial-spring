@@ -38,7 +38,7 @@ DB 의 명령어들의 논리적인 묶음
    - 트랜젝션 격리: 동시에 발생하는 트랜젝션 간의 데이터 접근을 어떤 방식으로 정리할 지 정리하는 것
    - 단계에 따라 레벨 0 부터 레벨 3 까지 있고, 레벨 3에 가까울 수록 격리 단계가 강력해지고 데이터 정확성을 보장하는 대신 동시처리 수행 성능이 저하된다.
      1. DEFAULT: DB default 격리단계
-        1. mysql 은 default 격리단계가 REPEATABLE_READ 단계다.
+        - mysql 은 default 격리단계가 REPEATABLE_READ 단계다.
      2. READ_UNCOMMITTED : 레벨 0
      3. READ_COMMITTED : 레벨 1
      4. REPEATABLE_READ : 레벨 2
