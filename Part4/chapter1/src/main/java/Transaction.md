@@ -31,3 +31,17 @@ DB 의 명령어들의 논리적인 묶음
 2. private 메소드 또는 Bean 클래 내부로 호출되는 메소드에 @Transactional 사용
     - spring container 는 bean 으로 진입할 때 Annotation 을 처리하도록 돼있다.
    - bean 내부에서 메소드가 호출될 경우 @Transactional 이 있다하더라도 무시된다.
+
+### @Transactional ; springframework 가 제공
+1. isolation : 트랜젝션 격리
+   - java 에서 제공하는 @Transactional 에는 isolation 을 지원하지 않는다.
+   - 트랜젝션 격리: 동시에 발생하는 트랜젝션 간의 데이터 접근을 어떤 방식으로 정리할 지 정리하는 것
+   - 단계에 따라 레벨 0 부터 레벨 3 까지 있고, 레벨 3에 가까울 수록 격리 단계가 강력해지고 데이터 정확성을 보장하는 대신 동시처리 수행 성능이 저하된다.
+     1. DEFAULT: DB default 격리단계
+        1. mysql 은 default 격리단계가 REPEATABLE_READ 단계다.
+     2. READ_UNCOMMITTED : 레벨 0
+     3. READ_COMMITTED : 레벨 1
+     4. REPEATABLE_READ : 레벨 2
+     5. SERIALIZABLE : 레벨 3
+2. propagation
+   - java 에서 제공하는 @Transactional 은 propagation 타입이다.
