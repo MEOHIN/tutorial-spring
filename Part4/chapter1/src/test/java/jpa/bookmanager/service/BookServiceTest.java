@@ -1,6 +1,6 @@
 package jpa.bookmanager.service;
 
-import jpa.bookmanager.domain.Author;
+import jpa.bookmanager.domain.Book;
 import jpa.bookmanager.repository.AuthorRepository;
 import jpa.bookmanager.repository.BookRepository;
 import org.junit.jupiter.api.Test;
@@ -29,5 +29,20 @@ class BookServiceTest {
 
         System.out.println("books : " + bookRepository.findAll());
         System.out.println("authors : " + authorRepository.findAll());
+    }
+
+    /**
+     * 자바 프레임워크에서 제공하는 @Transactional 의 단계 변화를 관찰하는 테스트
+     */
+    @Test
+    void isolationTest() {
+        Book book = new Book();
+        book.setName("JPA 강의");
+
+        bookRepository.save(book);
+
+        bookService.get(1L);
+
+        System.out.println(">>> " +bookRepository.findAll());
     }
 }
