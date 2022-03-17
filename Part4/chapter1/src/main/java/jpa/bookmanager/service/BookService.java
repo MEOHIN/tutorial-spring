@@ -30,7 +30,7 @@ public class BookService {
         throw new RuntimeException("오류가 발생해서 commit 이 발생하지 않았습니다.");    // rollback
     }
 
-    @Transactional(isolation = Isolation.READ_UNCOMMITTED)
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public void get(Long id) {
         System.out.println(">>> " + bookRepository.findById(id));
         System.out.println(">>> " + bookRepository.findAll());
