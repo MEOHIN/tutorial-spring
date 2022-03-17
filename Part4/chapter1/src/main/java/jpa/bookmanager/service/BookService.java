@@ -6,6 +6,7 @@ import jpa.bookmanager.repository.AuthorRepository;
 import jpa.bookmanager.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -29,7 +30,7 @@ public class BookService {
         throw new RuntimeException("오류가 발생해서 commit 이 발생하지 않았습니다.");    // rollback
     }
 
-    @Transactional
+    @Transactional(isolation = Isolation.READ_UNCOMMITTED)
     public void get(Long id) {
         System.out.println(">>> " + bookRepository.findById(id));
         System.out.println(">>> " + bookRepository.findAll());
