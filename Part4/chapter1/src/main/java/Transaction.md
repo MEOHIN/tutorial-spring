@@ -43,6 +43,7 @@ DB 의 명령어들의 논리적인 묶음
         - dirty read 가 발생하여 데이터가 중간에 틀어지는 문제가 발생한다.
         - 데이터의 정확성을 해치므로 일반적으로는 잘 사용하지 않는다.
      3. READ_COMMITTED : 레벨 1
+        - 커밋된 데이터만 읽어온다.
      4. REPEATABLE_READ : 레벨 2
      5. SERIALIZABLE : 레벨 3
 2. propagation
