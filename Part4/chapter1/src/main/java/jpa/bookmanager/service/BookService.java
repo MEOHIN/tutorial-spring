@@ -25,5 +25,7 @@ public class BookService {
         author.setName("martin");
 
         authorRepository.save(author);
+
+        throw new RuntimeException("오류가 발생해서 commit 이 발생하지 않았습니다.");
     }
 }
