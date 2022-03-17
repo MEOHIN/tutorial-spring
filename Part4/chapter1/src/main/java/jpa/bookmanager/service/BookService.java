@@ -38,5 +38,8 @@ public class BookService {
         System.out.println(">>> " + bookRepository.findById(id));
         System.out.println(">>> " + bookRepository.findAll());
 
+        Book book = bookRepository.findById(id).get();
+        book.setName("바뀔까?");
+        bookRepository.save(book);
     }
 }
