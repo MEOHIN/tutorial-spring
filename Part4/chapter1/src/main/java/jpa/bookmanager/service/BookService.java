@@ -43,6 +43,8 @@ public class BookService {
         System.out.println(">>> " + bookRepository.findById(id));
         System.out.println(">>> " + bookRepository.findAll());
 
+        bookRepository.update();
+
         entityManager.clear();
 
 //        Book book = bookRepository.findById(id).get();  // book 이라는 entity 는 uncommitted 데이터를 가지고 있음
