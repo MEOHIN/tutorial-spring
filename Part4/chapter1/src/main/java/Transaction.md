@@ -47,6 +47,7 @@ DB 의 명령어들의 논리적인 묶음
      4. REPEATABLE_READ : 레벨 2
         - 트랜잭션 내에서 반복적으로 조회하더라도 항상 같은 값을 리턴한다.
         - UNREPEATABLE_READ: update 또는 insert 작업을 하지 않았지만, 트랜잭션 내에서 단지 값을 반복적으로 조회했을 뿐인데도 값이 중간에 변경되는 경우
+        - phantom read: 데이터가 안 보이는 데 처리
      5. SERIALIZABLE : 레벨 3
 2. propagation
    - java 에서 제공하는 @Transactional 은 propagation 타입이다.
