@@ -49,5 +49,6 @@ DB 의 명령어들의 논리적인 묶음
         - UNREPEATABLE_READ: update 또는 insert 작업을 하지 않았지만, 트랜잭션 내에서 단지 값을 반복적으로 조회했을 뿐인데도 값이 중간에 변경되는 경우
         - phantom read: 데이터가 안 보이는 데 처리
      5. SERIALIZABLE : 레벨 3
+        - 커밋이 일어나지 않은 트랜젝션이 존재하게되면 락을 통해서 웨이팅을 하고, 커밋이 실행되어야만 추가적인 로직을 실행한다.
 2. propagation
    - java 에서 제공하는 @Transactional 은 propagation 타입이다.
