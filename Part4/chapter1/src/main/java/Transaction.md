@@ -59,9 +59,10 @@ DB 의 명령어들의 논리적인 묶음
 1. REQUIRED
    - 트랜젝션을 선언만 하고 아무런 propagation 속성을 취하지 않을 경우의 default 는 REQUIRED 전파 상태를 가진다.
    - 기존 사용하던 트랜젝션이 있다면 그 트랜젝션을 사용하고, 없다면 새로운 트랜젝션을 생성해서 사용하겠다는 의미
-2. SUPPORTS
-3. MANDATORY
-4. REQUIRES_NEW
+2. REQUIRES_NEW
+   - 기존 사용하던 트랜잭션의 유무과 관계없이 새로운 트랜잭션을 생성해서 사용한다는 의미
+3. SUPPORTS
+4. MANDATORY
 5. NOT_SUPPORTED
 6. NEVER
 7. NESTED
