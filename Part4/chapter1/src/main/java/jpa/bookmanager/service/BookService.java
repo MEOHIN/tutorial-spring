@@ -28,6 +28,8 @@ public class BookService {
         bookRepository.save(book);
 
         authorService.putAuthor();
+
+        throw new RuntimeException("오류가 발생해서 commit 이 발생하지 않았습니다.");    // rollback
     }
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
