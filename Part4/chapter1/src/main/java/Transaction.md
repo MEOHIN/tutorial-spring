@@ -22,6 +22,7 @@ DB 의 명령어들의 논리적인 묶음
 
 ## JPA 에서 Transaction 을 설정하는 방법
 @Transactional 을 사용한다.
+- JPA 에서 트랜젝션의 시작과 끝은 각 메소드의 처음과 끝이다.
 
 ### Transaction 의 잘못된 사용
 1. checked exception 사용
