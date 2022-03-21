@@ -52,4 +52,7 @@ DB 의 명령어들의 논리적인 묶음
      5. SERIALIZABLE : 레벨 3
         - 커밋이 일어나지 않은 트랜젝션이 존재하게되면 락을 통해서 웨이팅을 하고, 커밋이 실행되어야만 추가적인 로직을 실행한다.
 2. propagation
-   - java 에서 제공하는 @Transactional 은 propagation 타입이다.
+   - java 에서 제공하는 @Transactional 은 전파 (propagation) 타입이다.
+
+### Transaction 전파 (propagation) 속성
+현재 트랜젝션과 또 다른 클래스의 메소드의 트랜젝션 간의 처리에 대해 교통정리하는 것
