@@ -62,8 +62,12 @@ DB 의 명령어들의 논리적인 묶음
 2. REQUIRES_NEW
    - 기존 사용하던 트랜잭션의 유무과 관계없이 새로운 트랜잭션을 생성해서 사용한다는 의미
      - 호출하는 쪽의 커밋/롤백 과는 관계없이 자체적으로(독립적으로) 커밋/롤백 을 진행
-3. SUPPORTS
-4. MANDATORY
-5. NOT_SUPPORTED
-6. NEVER
-7. NESTED
+3. NESTED
+   - 별도의 트랜잭션을 호출하지 아니지만, 하나의 트랜잭션이어도 약간은 분리되어 개별적으로 동작할 수 있다.
+     - 종속적인 트랜잭션은 상위에 영향을 주지 않는다.
+   - REQUIRES_NEW 와 달리 트랜잭션을 두개로 분리해서 사용하는 것이 아니므로 save point 개념이 있다.
+   - 기본적으로 JPA 에서는 NESTED 전파를 활용하지 못한다.
+4. SUPPORTS
+5. MANDATORY
+6. NOT_SUPPORTED
+7. NEVER
