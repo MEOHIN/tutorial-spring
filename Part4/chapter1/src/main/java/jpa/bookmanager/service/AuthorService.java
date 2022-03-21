@@ -12,11 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 public class AuthorService {
     private final AuthorRepository authorRepository;
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void putAuthor() {
         Author author = new Author();
         author.setName("martin");
 
         authorRepository.save(author);
+
+        throw new RuntimeException("오류가 발생했습니다. transaction 은 어떻게 될까요?");
     }
 }
