@@ -56,3 +56,10 @@ DB 의 명령어들의 논리적인 묶음
 
 ### Transaction 전파 (propagation) 속성
 현재 트랜젝션과 또 다른 클래스의 메소드의 트랜젝션 간의 처리에 대해 교통정리하는 것
+1. REQUIRED
+2. SUPPORTS
+3. MANDATORY
+4. REQUIRES_NEW
+5. NOT_SUPPORTED
+6. NEVER
+7. NESTED
