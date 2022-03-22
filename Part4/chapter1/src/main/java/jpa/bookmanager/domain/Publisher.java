@@ -25,4 +25,8 @@ public class Publisher extends BaseEntity{
     @OneToMany
     @JoinColumn(name = "publisher_id")  // 중간 테이블을 없애기 위해 컬럼명을 명시적으로 설정
     private List<Book> books = new ArrayList<>();   // new ArrayList<>() 는 nullPointException 방지하기 위해 추가
+
+    public void addBook(Book book) {
+        this.books.add(book);
+    }
 }
