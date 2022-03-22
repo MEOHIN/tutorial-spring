@@ -57,18 +57,11 @@ public class BookRepositoryTest {
         Book book = new Book();
         book.setName("JPA 초 격차 패키지");
 
-        bookRepository.save(book);
-
         Publisher publisher = new Publisher();
         publisher.setName("패스트캠퍼스");
 
-        publisherRepository.save(publisher);
-
         book.setPublisher(publisher);
         bookRepository.save(book);
-
-        publisher.addBook(book);    // setter 와 유사
-        publisherRepository.save(publisher);
 
         System.out.println("books:" + bookRepository.findAll());
         System.out.println("publisher: " + publisherRepository.findAll());
