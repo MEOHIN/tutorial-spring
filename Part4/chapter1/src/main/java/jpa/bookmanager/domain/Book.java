@@ -39,7 +39,7 @@ public class Book extends BaseEntity {
     @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)   // insert 영속성 전이를 일으키겠다. -> book 이 persist 될 때, publisher 도 persist 시켜라는 의미
     @ToString.Exclude
     private Publisher publisher;
 
