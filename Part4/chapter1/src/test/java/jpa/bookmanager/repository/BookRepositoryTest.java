@@ -63,7 +63,7 @@ public class BookRepositoryTest {
         book.setPublisher(publisher);
         bookRepository.save(book);
 
-        publisher.getBooks().add(book);     // publisher 와 book 연관관계: call by value call by reference -> 가독성을 위해서는 setter 를 더 권장
+        publisher.addBook(book);
         publisherRepository.save(publisher);
 
         System.out.println("books:" + bookRepository.findAll());
