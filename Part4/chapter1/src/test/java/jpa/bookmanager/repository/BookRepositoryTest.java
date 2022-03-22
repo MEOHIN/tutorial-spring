@@ -65,6 +65,14 @@ public class BookRepositoryTest {
 
         System.out.println("books:" + bookRepository.findAll());
         System.out.println("publisher: " + publisherRepository.findAll());
+
+//        merge 이벤트 발생
+        Book book1 = bookRepository.findById(1L).get();
+        book1.getPublisher().setName("슬로우캠퍼스");
+
+        bookRepository.save(book1);
+
+        System.out.println("publisher: " + publisherRepository.findAll());
     }
 
     private void givenBookAndReview() {
