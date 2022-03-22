@@ -67,7 +67,7 @@ public class BookRepositoryTest {
         book.setPublisher(publisher);
         bookRepository.save(book);
 
-        publisher.addBook(book);
+        publisher.addBook(book);    // setter 와 유사
         publisherRepository.save(publisher);
 
         System.out.println("books:" + bookRepository.findAll());
