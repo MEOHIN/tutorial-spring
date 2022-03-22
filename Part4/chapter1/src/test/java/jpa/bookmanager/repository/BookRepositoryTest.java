@@ -48,6 +48,10 @@ public class BookRepositoryTest {
         System.out.println("Publisher: " + user.getReviews().get(0).getBook().getPublisher());
     }
 
+
+    /**
+     * cascade 테스트
+     */
     @Test
     void bookCascadeTest() {
         Book book = new Book();
