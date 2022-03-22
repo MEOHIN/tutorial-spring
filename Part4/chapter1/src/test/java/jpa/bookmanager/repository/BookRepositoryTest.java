@@ -48,6 +48,28 @@ public class BookRepositoryTest {
         System.out.println("Publisher: " + user.getReviews().get(0).getBook().getPublisher());
     }
 
+    @Test
+    void bookCascadeTest() {
+        Book book = new Book();
+        book.setName("JPA 초 격차 패키지");
+
+        bookRepository.save(book);
+
+        Publisher publisher = new Publisher();
+        publisher.setName("패스트캠퍼스");
+
+        publisherRepository.save(publisher);
+
+        book.setPublisher(publisher);
+        bookRepository.save(book);
+
+        publisher.getBooks().add(book);     // publisher 와 book 연관관계: call by value call by reference -> 가독성을 위해서는 setter 를 더 권장
+        publisherRepository.save(publisher);
+
+        System.out.println("books:" + bookRepository.findAll());
+        System.out.println("publisher: " + publisherRepository.findAll());
+    }
+
     private void givenBookAndReview() {
         givenReview(givenUser(), givenBook(givenPublisher()));
     }
