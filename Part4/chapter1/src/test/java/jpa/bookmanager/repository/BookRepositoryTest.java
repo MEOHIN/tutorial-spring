@@ -73,9 +73,16 @@ public class BookRepositoryTest {
         bookRepository.save(book1);
 
         System.out.println("publisher: " + publisherRepository.findAll());
+
+//        book entity 삭제
+        Book book2 = bookRepository.findById(1L).get();
+        bookRepository.deleteAll(book2);
+
+        System.out.println("books: " + bookRepository.findAll());
+        System.out.println("publisher: " + publisherRepository.findAll());
     }
 
-    private void givenBookAndReview() {
+    priate void givenBookAndReview() {
         givenReview(givenUser(), givenBook(givenPublisher()));
     }
 
