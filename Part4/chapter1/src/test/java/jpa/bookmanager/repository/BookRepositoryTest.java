@@ -76,7 +76,14 @@ public class BookRepositoryTest {
 
 //        book entity 삭제
         Book book2 = bookRepository.findById(1L).get();
-        bookRepository.delete(book2);
+//        bookRepository.delete(book2);
+//        bookRepository.deleteById(1L);
+
+//        orphan remover test = 연관관계 제거
+        Book book3 = bookRepository.findById(1L).get();
+        book3.setPublisher(null);
+
+        bookRepository.save(book3);
 
         System.out.println("books: " + bookRepository.findAll());
         System.out.println("publisher: " + publisherRepository.findAll());
