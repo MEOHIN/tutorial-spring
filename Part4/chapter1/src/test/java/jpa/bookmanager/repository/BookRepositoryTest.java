@@ -79,7 +79,7 @@ public class BookRepositoryTest {
 //        bookRepository.delete(book2);
 //        bookRepository.deleteById(1L);
 
-//        orphan remover test = 연관관계 제거
+//        orphan removal test = 연관관계 제거
         Book book3 = bookRepository.findById(1L).get();
         book3.setPublisher(null);
 
