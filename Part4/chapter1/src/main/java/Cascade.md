@@ -8,6 +8,7 @@
 2. PERSIST
 3. MERGE
 4. REMOVE
-   - orphan remover (고아 제거) : 연관관계가 없는 entity 제거 
+   - orphan remover (고아 제거) : 연관관계가 없는 entity 제거
+     - setter 를 통해서 null 을 주입하면 연관관계가 끊어진다.
 5. REFRESH
 6. DETACH
