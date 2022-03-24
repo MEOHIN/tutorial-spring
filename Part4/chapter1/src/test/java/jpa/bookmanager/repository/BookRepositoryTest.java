@@ -90,6 +90,9 @@ public class BookRepositoryTest {
 //        data.sql 이 잘 추가 되었는지 확인
         System.out.println("books : " + bookRepository.findAll());
         System.out.println("publisher : " + publisherRepository.findAll());
+
+//        추가한 data.sql 연관관계가 ToString 에서 안나오는 것을 해결하기 위해 추가적으로 로그 찍기
+        bookRepository.findAll().forEach(book -> System.out.println(book.getPublisher()));
     }
 
     private void givenBookAndReview() {
