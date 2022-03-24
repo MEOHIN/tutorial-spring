@@ -87,6 +87,9 @@ public class BookRepositoryTest {
      */
     @Test
     void bookRemoveCascadeTest() {
+//        삭제가 될 지 확인
+        bookRepository.deleteById(1L);
+
 //        data.sql 이 잘 추가 되었는지 확인
         System.out.println("books : " + bookRepository.findAll());
         System.out.println("publisher : " + publisherRepository.findAll());
