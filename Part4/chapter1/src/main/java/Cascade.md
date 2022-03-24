@@ -8,5 +8,6 @@
 2. PERSIST
 3. MERGE
 4. REMOVE
+   - orphan remover (고아 제거) : 연관관계가 없는 entity 제거 
 5. REFRESH
 6. DETACH
