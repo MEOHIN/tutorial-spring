@@ -82,6 +82,16 @@ public class BookRepositoryTest {
         System.out.println("publisher: " + publisherRepository.findAll());
     }
 
+    /**
+     *
+     */
+    @Test
+    void bookRemoveCascadeTest() {
+//        data.sql 이 잘 추가 되었는지 확인
+        System.out.println("books : " + bookRepository.findAll());
+        System.out.println("publisher : " + publisherRepository.findAll());
+    }
+
     private void givenBookAndReview() {
         givenReview(givenUser(), givenBook(givenPublisher()));
     }
