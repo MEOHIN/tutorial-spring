@@ -76,7 +76,7 @@ public class BookRepositoryTest {
 
 //        book entity 삭제
         Book book2 = bookRepository.findById(1L).get();
-        bookRepository.deleteAll(book2);
+        bookRepository.delete(book2);
 
         publisherRepository.delete(book2.getPublisher());
 
