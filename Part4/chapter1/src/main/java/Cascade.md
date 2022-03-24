@@ -11,5 +11,8 @@
    - cascade 는 상위 객체가 remove action 을 취하면 포함하고 있는 객체의 해당 영속성 이벤트를 전파해서 하위 entity 까지 remove 한다.
    - orphan removal (고아 제거) : 연관관계가 없는 entity 제거
      - setter 를 통해서 null 을 주입하면 연관관계가 끊어진다.
+     - 연관관계가 끊어진 상태에서는 remove 이벤트가 발생하지 않는다.
+       - `orphanRemoval = true` 고아 객체를 사라지게 할 때
+       - `orphanRemoval = false` 는 객체를 살려둘 때
 5. REFRESH
 6. DETACH
