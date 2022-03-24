@@ -83,7 +83,7 @@ public class BookRepositoryTest {
     }
 
     /**
-     *
+     *  cascade remove test
      */
     @Test
     void bookRemoveCascadeTest() {
