@@ -22,7 +22,7 @@ public class Publisher extends BaseEntity{
 
     private String name;
 
-    @OneToMany
+    @OneToMany(orphanRemoval = true)
     @JoinColumn(name = "publisher_id")  // 중간 테이블을 없애기 위해 컬럼명을 명시적으로 설정
     @ToString.Exclude
     private List<Book> books = new ArrayList<>();   // new ArrayList<>() 는 nullPointException 방지하기 위해 추가
