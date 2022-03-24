@@ -78,11 +78,13 @@ public class BookRepositoryTest {
         Book book2 = bookRepository.findById(1L).get();
         bookRepository.deleteAll(book2);
 
+        publisherRepository.delete(book2.getPublisher());
+
         System.out.println("books: " + bookRepository.findAll());
         System.out.println("publisher: " + publisherRepository.findAll());
     }
 
-    priate void givenBookAndReview() {
+    private void givenBookAndReview() {
         givenReview(givenUser(), givenBook(givenPublisher()));
     }
 
