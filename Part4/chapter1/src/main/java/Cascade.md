@@ -16,5 +16,6 @@
        - `orphanRemoval = false` 는 객체를 살려둘 때
    - soft delete
      - 탈퇴한 회원정보 삭제같은 특별한 경우를 제외하면 일반적으로 delete 쿼리를 이용해 DB 데이터를 삭제하는 경우는 거의 없고, flag 를 활용해서 지웠다고 인식하는 방식을 사용한다.
+     - entity 에 @Where 를 사용하여 탈퇴한 계정이 로그인 하는 것과 같은 사이드 이팩트 방지
 5. REFRESH
 6. DETACH
