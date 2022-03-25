@@ -105,6 +105,19 @@ public class BookRepositoryTest {
         bookRepository.findAll().forEach(book -> System.out.println(book.getPublisher()));
     }
 
+    /**
+     *  soft delete test
+     *  id 값이 3번인 데이터를 삭제처리 했을 때, 조회하는 테스트
+     */
+
+    @Test
+    void softDelete() {
+        bookRepository.findAll().forEach(System.out::println);  // 삭제 여부와 관계없이 모든 데이터 노출
+        System.out.println(bookRepository.findById(3L));    // id 로 조회해도 삭제된 3번 값을 가져옴
+
+        bookRepository.findByCategoryIsNull().forEach(System.out::println);
+    }
+
     private void givenBookAndReview() {
         givenReview(givenUser(), givenBook(givenPublisher()));
     }
