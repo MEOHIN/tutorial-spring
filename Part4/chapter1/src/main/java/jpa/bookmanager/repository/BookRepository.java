@@ -14,4 +14,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     void update();
 
     List<Book> findByCategoryIsNull();
+
+    List<Book> findByDeletedFalse();
+
+    List<Book> findByCategoryIsNullAndDeletedFalse();   // delete false 값을 항상 생성해서 사용해야한다.
 }

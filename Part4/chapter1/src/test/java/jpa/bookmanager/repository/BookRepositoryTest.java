@@ -116,6 +116,9 @@ public class BookRepositoryTest {
         System.out.println(bookRepository.findById(3L));    // id 로 조회해도 삭제된 3번 값을 가져옴
 
         bookRepository.findByCategoryIsNull().forEach(System.out::println);
+
+        bookRepository.findByDeletedFalse().forEach(System.out::println);
+        bookRepository.findByCategoryIsNullAndDeletedFalse().forEach(System.out::println);
     }
 
     private void givenBookAndReview() {
