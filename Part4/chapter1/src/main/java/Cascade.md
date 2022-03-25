@@ -14,5 +14,7 @@
      - 연관관계가 끊어진 상태에서는 remove 이벤트가 발생하지 않는다.
        - `orphanRemoval = true` 고아 객체를 사라지게 할 때
        - `orphanRemoval = false` 는 객체를 살려둘 때
+   - soft delete
+     - 탈퇴한 회원정보 삭제같은 특별한 경우를 제외하면 일반적으로 delete 쿼리를 이용해 DB 데이터를 삭제하는 경우는 거의 없고, flag 를 활용해서 지웠다고 인식하는 방식을 사용한다.
 5. REFRESH
 6. DETACH
